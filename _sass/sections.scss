@@ -1,0 +1,736 @@
+// Import variables to ensure we have access to colours
+@import 'variables';
+
+.about-section {
+  background-color: $color-white;
+  padding: 4rem 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+
+  // Mobile Grid (Stacked)
+  .about-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  // Mobile Image Styles
+  .about-image-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    
+    // The "Warm" Sepia Effect
+    filter: sepia(20%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      filter: sepia(0%); // Remove filter on hover for clarity
+      transform: scale(1.02);
+    }
+  }
+
+  .about-content {
+    text-align: center; // Centered text on mobile
+  }
+
+  // Credential Badges
+  .about-badges {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .badge {
+    display: inline-block;
+    // Oxford Blue with 10% opacity using SASS rgba function or CSS var
+    background-color: rgba($color-primary-brand, 0.1); 
+    color: $color-primary-brand;
+    font-family: $font-sans;
+    font-weight: 700; // Bold
+    font-size: 0.875rem; // Small
+    padding: 8px 16px;
+    border-radius: $border-radius-pill;
+  }
+
+  // --- Desktop Adaptation ---
+  @media (min-width: 768px) {
+    .about-grid {
+      flex-direction: row; // Side-by-side
+      align-items: flex-start;
+      gap: 3rem;
+    }
+
+    .about-image-wrapper {
+      width: 40%;
+      justify-content: flex-start;
+    }
+
+    .profile-img {
+      width: 100%; // Fill the column width
+      height: auto;
+      border-radius: 12px; // Soft rounded rectangle
+      aspect-ratio: 1/1.2;
+    }
+
+    .about-content {
+      width: 60%;
+      text-align: left; // Left align text on desktop
+      padding-top: 1rem;
+    }
+
+    .about-badges {
+      justify-content: flex-start; // Align badges left
+    }
+  }
+}
+
+/* --- Trust Banner / Snap-Scroll Hybrid --- */
+
+.trust-banner {
+  background-color: #F9F7F2;
+  padding: 3rem 0;
+  position: relative; /* Context for fade mask */
+}
+
+.trust-headline {
+  font-family: 'Playfair Display', serif;
+  color: #1B365D;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Review Card Styles --- */
+.review-card {
+  background: #FFFFFF;
+  --review-card-padding: 24px;
+  padding: var(--review-card-padding);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(0,0,0,0.03);
+  position: relative; /* Context for absolute badge */
+  transition: transform 0.2s ease;
+}
+
+/* Absolute Badge (Bottom Right) */
+.absolute-badge {
+  position: absolute;
+  bottom: var(--review-card-padding);
+  right: var(--review-card-padding);
+}
+
+/* Highlight Effect (Yellow Marker) */
+.text-highlight {
+  background: linear-gradient(120deg, rgba(255, 235, 59, 0.4) 0%, rgba(255, 235, 59, 0.4) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 88%; /* Bottom underline highlighter style */
+  font-weight: 700;
+  color: #1B365D;
+}
+
+/* Badge Colors */
+.level-badge {
+  font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;
+  padding: 4px 10px; border-radius: 50px;
+}
+.badge-gold { background-color: #FFF8E1; color: #B8860B; }
+.badge-blue { background-color: #E3F2FD; color: #1565C0; }
+.badge-green { background-color: #E8F5E9; color: #2E7D32; }
+
+/* Stars & Text */
+.stars { color: #FFB400; letter-spacing: 2px; margin-bottom: 12px; font-size: 1.1rem; margin-top: 1rem; }
+.review-text { font-size: 0.95rem; color: #2C3E50; font-style: italic; line-height: 1.5; margin-bottom: 16px; }
+.review-footer { border-top: 1px solid #F0F0F0; padding-top: 12px; }
+.review-name { font-weight: 700; font-size: 0.9rem; color: #1B365D; }
+
+
+/* --- DESKTOP (>768px): Infinite Marquee --- */
+@media (min-width: 768px) {
+  .marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+
+  .marquee-content {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: scroll 60s linear infinite;
+    padding-left: 24px;
+  }
+  
+  .review-card { flex: 0 0 350px; }
+
+  /* Pause on Hover */
+  .marquee-wrapper:hover .marquee-content { animation-play-state: paused; }
+
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+}
+
+
+/* --- MOBILE (<768px): Snap-Scroll with Peek Effect --- */
+@media (max-width: 767px) {
+  
+  /* The Container */
+  .marquee-wrapper {
+    width: 100%;
+    position: relative;
+    /* No mask-image on mobile, we use the Fade Mask instead */
+  }
+
+  /* The "Fade Mask" on the right edge */
+  .marquee-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    height: 100%;
+    width: 15%; /* 15% width fade */
+    background: linear-gradient(to right, rgba(249,247,242,0), rgba(249,247,242,1));
+    pointer-events: none; /* Allows scrolling 'through' the fade */
+    z-index: 2;
+  }
+
+  /* The Content Track */
+  .marquee-content {
+    display: flex;
+    gap: 16px;
+    padding: 0 24px; /* Side padding so first card isn't flush */
+    
+    /* Scroll Properties */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    
+    /* Hide Scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE */
+  }
+  
+  .marquee-content::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  /* The Cards */
+  .review-card {
+    flex: 0 0 85%; /* 85% Width = The Peek Effect */
+    scroll-snap-align: center; /* Snaps to center of screen */
+    margin-right: 0;
+  }
+}
+
+/* --- Habit Hero Section --- */
+
+.habit-section {
+  padding: 4rem 0;
+  // Pale Gold/Cream Gradient
+  background: linear-gradient(to bottom, #FFFDF5, #FFF8E1); 
+  border-top: 1px solid #EAD8B1; // Subtle gold separator
+}
+
+.habit-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* --- Left Column: Voucher & Hook --- */
+.habit-col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  align-items: center;
+}
+
+.habit-text h2 {
+  font-family: 'Playfair Display', serif;
+  color: #1B365D; // Navy
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.habit-text p {
+  color: #444;
+  line-height: 1.6;
+}
+
+/* The CSS Voucher Card */
+.voucher-wrapper {
+  // Mobile: Order -1 puts it visually above the text
+  order: -1; 
+  margin-bottom: 1rem;
+}
+
+.voucher-card {
+  background: #232F3E; // Amazon Dark Blue/Grey
+  color: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 260px;
+  height: 150px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  // Playful rotation
+  transform: rotate(-3deg); 
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
+}
+
+.voucher-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.voucher-amt {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #FF9900; // Amazon Orange
+  line-height: 1;
+}
+
+.voucher-label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: #ccc;
+  letter-spacing: 1px;
+}
+
+.voucher-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.voucher-brand {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* --- Right Column: Checklist --- */
+.habit-col-right {
+  background: rgba(255,255,255,0.5); // Slight glass effect
+  padding: 2rem;
+  border-radius: 16px;
+  width: 100%;
+  border: 1px solid rgba(212, 175, 55, 0.2); // Faint gold border
+}
+
+.benefit-header {
+  margin-top: 0;
+  color: #1B365D;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.check-icon {
+  color: #4B7F52; // Teal/Green
+  font-weight: bold;
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+/* --- Desktop Layout (>768px) --- */
+@media (min-width: 768px) {
+  .habit-grid {
+    flex-direction: row; // Side by side
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .habit-col-left {
+    width: 45%;
+    text-align: left;
+    align-items: flex-start;
+    
+    // Reset order so Text is on top, Voucher below on desktop (optional, based on pref)
+    // Or keep logic: Voucher Left, Text Right? 
+    // Let's stick to the grid flow:
+  }
+  
+  .voucher-wrapper {
+    order: 0; // Reset order
+    align-self: flex-start;
+  }
+  
+  .habit-col-right {
+    width: 45%;
+  }
+}
+
+
+/* --- Methodology Section --- */
+
+.methodology-section {
+  background-color: #FFFFFF;
+  padding: 5rem 0;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.method-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem auto;
+}
+
+.method-header h2 {
+  font-family: 'Playfair Display', serif;
+  color: #1B365D;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.method-sub {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Grid Layout */
+.method-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* Card Styling */
+.method-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+  
+  /* Optional: Subtle hover state */
+  &:hover {
+    background-color: #F9F7F2; /* Warm Cream Fade */
+  }
+}
+
+/* Icon Styling */
+.icon-wrapper {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(27, 54, 93, 0.05); /* Faint Navy BG */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1B365D; /* Brand Navy */
+  font-size: 1.5rem;
+}
+
+.text-wrapper h3 {
+  margin: 0 0 0.5rem 0;
+  color: #1B365D;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+}
+
+.text-wrapper p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+  .method-grid {
+    grid-template-columns: 1fr 1fr; /* 2x2 Grid */
+    column-gap: 4rem;
+    row-gap: 3rem;
+  }
+}
+
+
+/* --- Results Graph Section --- */
+
+.results-section {
+  background-color: #1B365D; /* Dark Navy */
+  padding: 5rem 0;
+  color: #FFFFFF;
+  overflow: hidden; /* Contains chart animations */
+}
+
+.results-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Text Column */
+.results-text {
+  text-align: center;
+}
+
+.results-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #FFFFFF;
+}
+
+.text-gold { color: #D4AF37; }
+
+.stat-highlight {
+  margin-top: 2rem;
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+}
+
+.stat-number { font-size: 2.5rem; font-weight: bold; color: #D4AF37; display: block; line-height: 1; }
+.stat-label { font-size: 0.9rem; color: #ccc; text-transform: uppercase; letter-spacing: 1px; }
+
+
+/* Chart Column */
+.chart-wrapper {
+  width: 100%;
+  max-width: 400px; /* Slightly narrower for focus */
+  height: 350px;
+  position: relative;
+  margin: 0 auto; /* Center it */
+}
+
+/* Bars Container */
+.bars-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  padding-left: 0; 
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 80px;
+}
+
+.bar {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+  transform-origin: bottom;
+}
+
+/* Bar 1: Start (Grade 4 ~ 45% height) */
+.bar-start {
+  height: 35%; 
+  background-color: #5A718C; /* Muted Blue/Grey */
+}
+
+/* Bar 2: End (Grade 8 ~ 85% height) */
+.bar-end {
+  height: 85%;
+  background: linear-gradient(to top, #C5A059, #F2D088); /* Vibrant Gold Gradient */
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); /* Glow */
+  animation-delay: 0.4s; /* Delay slightly so it grows second */
+}
+
+.bar-value {
+  position: absolute;
+  top: -40px; /* Float above the bar */
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  
+  /* Pill Styling */
+  background: rgba(255,255,255,0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+}
+
+.bar-label {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+}
+
+/* The Delta (+4 Grades) */
+.delta-connector {
+  position: absolute;
+  top: 20%; /* Position near top of Grade 8 bar */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+
+}
+
+.delta-badge {
+  background-color: #4B7F52; /* Growth Green */
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  white-space: nowrap;
+}
+
+/* Mobile Layout */
+@media (max-width: 767px) {
+  .bars-container {
+    justify-content: space-between;
+  }
+}
+
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+  .results-grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .results-text {
+    width: 45%;
+    text-align: left;
+  }
+  
+  .chart-wrapper {
+    width: 50%;
+  }
+}
+
+
+/* --- FAQ Section --- */
+.faq-section {
+  padding: 4rem 0;
+  background-color: #F9F7F2; /* Cream background to let white bars pop */
+}
+
+.faq-container {
+  max-width: 800px; /* Narrower container for readability */
+  margin: 0 auto;
+}
+
+.faq-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+
+  /* Hover effect for the whole bar */
+  &:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    border-color: rgba(27, 54, 93, 0.1);
+  }
+}
+
+/* The Clickable Header */
+summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  cursor: pointer;
+  list-style: none; /* Hides default marker */
+  font-weight: bold;
+  color: #1B365D;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+}
+
+/* Hide default marker in Webkit */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* The Chevron Icon */
+.faq-icon {
+  color: #D4AF37; /* Gold Icon */
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate Icon when Open */
+details[open] .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* The Answer Text */
+.faq-answer {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  color: #555;
+  line-height: 1.6;
+  font-size: 1rem;
+  border-top: 1px solid transparent;
+  
+  /* Optional: Mild animation for appearing text */
+  animation: fadeDown 0.3s ease-in-out;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+

@@ -1,0 +1,29 @@
+- title: "Key Stage 2 (KS2)"
+  icon_name: "bi-puzzle-fill"   # Bootstrap Icon: Puzzle (Foundations)
+  description: "Building strong foundations and confidence for 11+ and middle school entry."
+  feature_tag: "Includes Portal Access"
+  price_from: "£30"
+
+- title: "Key Stage 3 (KS3)"
+  icon_name: "bi-layers-fill"   # Bootstrap Icon: Layers (Building complexity)
+  description: "Bridging the gap between primary basics and GCSE rigour."
+  feature_tag: "Includes Portal Access"
+  price_from: "£35"
+
+- title: "GCSE Maths"
+  icon_name: "bi-calculator-fill" # Bootstrap Icon: Calculator (Exam Prep)
+  description: "Focused exam preparation to secure top grades (9-7)."
+  feature_tag: "Includes Portal Access"
+  price_from: "£40"
+
+- title: "A-Level Maths"
+  icon_name: "bi-graph-up-arrow" # Bootstrap Icon: Graph (Advanced Analysis)
+  description: "Advanced calculus and mechanics for high-achieving sixth formers."
+  feature_tag: "Includes Portal Access"
+  price_from: "£50"
+
+- title: "University Entrance"
+  icon_name: "bi-mortarboard-fill" # Bootstrap Icon: Mortarboard (Success)
+  description: "Specialist coaching for MAT, TMUA, and STEP exams."
+  feature_tag: "Includes Portal Access"
+  price_from: "£65"

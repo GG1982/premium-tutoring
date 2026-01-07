@@ -1,0 +1,225 @@
+<section class="services-section bg-pattern-math">
+  <div class="container">
+    <div class="section-header">
+      <h2 style="text-align:center; color: #1B365D;">Academic Pathways</h2>
+      <p class="section-subtitle">Select a level to view availability.</p>
+    </div>
+
+    <div class="services-grid">
+      
+      {% for service in site.data.services %}
+        {% assign mod = forloop.index %}
+        
+        {% if mod <= 2 %} 
+          {% assign accent_class = "card-teal" %}
+        {% elsif mod == 3 %} 
+          {% assign accent_class = "card-blue" %}
+        {% else %} 
+          {% assign accent_class = "card-gold" %}
+        {% endif %}
+
+        <div class="service-card {{ accent_class }}">
+          
+          <div class="card-content">
+            <div class="card-header">
+            <div class="icon-circle">
+              <i class="bi {{ service.icon_name }}"></i>
+            </div>
+              <h3 class="service-title">{{ service.title }}</h3>
+            </div>
+            
+            <p class="service-desc">{{ service.description }}</p>
+
+            <div class="card-features">
+              <div class="feature-row">
+                <span class="check-icon">✓</span><strong>60-min</strong>1-to-1 Expert Tuition
+              </div>
+              <div class="feature-row">
+                <span class="check-icon">✓</span> Weekly Parent Feedback
+              </div>
+              <div class="feature-row">
+                <span class="check-icon">✓</span> 24/7 Learning Portal Access
+              </div>
+              <div class="feature-row">
+                <span class="check-icon">✓</span> Homework Rewards (Amazon)
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="card-footer">
+            <div class="price-tag">From {{ service.price_from }}<span class="per-hour">/hr</span></div>
+            <a href="/contact?level={{ service.title | url_encode }}" class="btn-card-action">
+              Enquire Now
+            </a>
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* --- Layout --- */
+  .services-section { 
+    padding: 4rem 0; 
+    background-color: #F9F7F2; /* Cream Base */
+  }
+  
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 3rem;
+    margin-top: -0.5rem;
+  }
+
+  .services-grid { 
+    display: grid; 
+    grid-template-columns: 1fr; 
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* --- Card Design --- */
+  .service-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-top: 5px solid transparent; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Pushes footer to bottom */
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  }
+
+  .card-content { padding: 2rem 2rem 1rem 2rem; }
+
+  .icon-circle {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.4rem; /* Specific size for Font Awesome */
+  }
+  
+  .icon-circle i {
+    font-size: 1.5rem; /* Ensure they are large enough */
+    /* If you want them slightly bolder, use text-shadow or stroke width */
+    -webkit-text-stroke: 0.5px currentColor; 
+  }
+
+  .service-title {
+    font-size: 1.4rem;
+    color: #1B365D;
+    margin: 0 0 1rem 0;
+    font-family: var(--font-serif); /* Playfair Display */
+  }
+
+  .service-desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  /* --- Features List inside Card --- */
+
+  .card-features {
+    background: #F8F9FA;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  .feature-row {
+    font-size: 0.85rem;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .feature-row:last-child { margin-bottom: 0; }
+  
+  .check-icon { 
+    font-weight: bold; 
+    font-size: 0.8rem;
+  }
+
+  /* --- Footer & Button --- */
+  .card-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+  }
+
+  .price-tag {
+    font-weight: 700;
+    color: #1B365D;
+    font-size: 1.1rem;
+  }
+  .per-hour {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: 400;
+  }
+
+  .btn-card-action {
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+  }
+
+  /* --- Color Logic Updates --- */
+  
+  /* 1. Teal (Growth) */
+  .card-teal { border-top-color: #4B7F52; }
+  .card-teal .icon-circle { background: #E8F5E9; color: #4B7F52; }
+  .card-teal .check-icon { color: #4B7F52; }
+  .card-teal .btn-card-action { 
+    background: #E8F5E9; color: #4B7F52; 
+  }
+  .card-teal .btn-card-action:hover { background: #4B7F52; color: white; }
+
+  /* 2. Blue (Focus) */
+  .card-blue { border-top-color: #2E86AB; }
+  .card-blue .icon-circle { background: #E3F2FD; color: #2E86AB; }
+  .card-blue .check-icon { color: #2E86AB; }
+  .card-blue .btn-card-action { 
+    background: #E3F2FD; color: #2E86AB; 
+  }
+  .card-blue .btn-card-action:hover { background: #2E86AB; color: white; }
+
+  /* 3. Gold (Prestige) */
+  .card-gold { border-top-color: #D4AF37; }
+  .card-gold .icon-circle { background: #FFF8E1; color: #B8860B; }
+  .card-gold .check-icon { color: #B8860B; }
+  .card-gold .btn-card-action { 
+    background: #FFF8E1; color: #B8860B; 
+  }
+  .card-gold .btn-card-action:hover { background: #D4AF37; color: white; }
+
+  /* --- Responsiveness --- */
+  @media (min-width: 768px) {
+    .services-grid { 
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+      justify-content: center;
+    }
+  }
+</style>

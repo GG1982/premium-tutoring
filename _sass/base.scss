@@ -1,0 +1,105 @@
+@import 'variables';
+
+// Reset & Base
+html {
+  font-size: 100%; // Mobile-first base
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: $color-bg-body;
+  color: $color-text-primary;
+  font-family: $font-sans;
+  font-size: 1.125rem; // 18px minimum
+  line-height: 1.6;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: $font-serif;
+  color: $color-primary-brand;
+  margin-bottom: $spacing-unit;
+}
+
+// Utility Class
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 $spacing-unit; // 24px padding
+}
+
+// Button Styles
+.btn-primary {
+  display: inline-block;
+  background-color: $color-primary-brand;
+  color: $color-white;
+  padding: 1rem 2rem;
+  border-radius: $border-radius-pill;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  width: 100%; // Full width on mobile
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  @media (min-width: 768px) {
+    width: auto; // Auto width on desktop
+  }
+}
+
+// Background Pattern Utility (Graph Paper Effect)
+.bg-pattern-math {
+  background-color: $color-bg-body;
+  background-image: 
+    linear-gradient(#E5E5E5 1px, transparent 1px),
+    linear-gradient(90deg, #E5E5E5 1px, transparent 1px);
+  background-size: 40px 40px; /* Size of the grid squares */
+  background-position: center top;
+}
+
+// New "Gold" Button Style
+.btn-gold {
+  display: inline-block;
+  background-color: $color-accent-gold;
+  color: #0F2027; /* Dark text for contrast */
+  padding: 1rem 2rem;
+  border-radius: $border-radius-pill;
+  text-decoration: none;
+  font-weight: 800;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); /* Gold Glow */
+  border: 2px solid $color-accent-gold;
+
+  &:hover {
+    background-color: #fff;
+    color: $color-accent-gold;
+    transform: translateY(-2px);
+  }
+}
+
+// Typography Utility for Dark Backgrounds
+.text-on-dark {
+  -webkit-font-smoothing: antialiased; // Makes text look thinner/crisper
+  -moz-osx-font-smoothing: grayscale;
+  color: $color-white;
+  
+  // Slight weight bump to improve readability against dark contrast
+  font-weight: 500; 
+
+  h1, h2, h3, h4 {
+    color: $color-white;
+  }
+  
+  p {
+    color: rgba(255, 255, 255, 0.9); // High opacity white
+  }
+}

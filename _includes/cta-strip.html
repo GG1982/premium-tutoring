@@ -1,0 +1,70 @@
+<section class="cta-strip text-on-dark">
+  <div class="pattern-overlay"></div>
+  
+  <div class="container">
+    <div class="cta-flex-wrapper">
+      
+      <div class="cta-text">
+        <h2 class="cta-headline">Unsure where your child stands?</h2>
+        <p class="cta-sub">Book a 15-minute diagnostic call. We will assess their current level and recommend the right roadmap.</p>
+      </div>
+
+      <div class="cta-action">
+        <a href="#contact" class="btn-gold">Book Free Diagnostic</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-strip {
+    background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%); /* Hero Gradient */
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Custom Pattern Overlay for Dark Mode */
+  .pattern-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .cta-flex-wrapper {
+    display: flex;
+    flex-direction: column; /* Mobile Default */
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta-sub {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  /* Desktop Layout */
+  @media (min-width: 768px) {
+    .cta-flex-wrapper {
+      flex-direction: row; /* Switch to Row */
+      justify-content: space-between;
+      text-align: left;
+    }
+    .cta-text { width: 70%; }
+    .cta-action { width: 30%; text-align: right; }
+  }
+</style>

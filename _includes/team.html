@@ -1,0 +1,187 @@
+<section class="team-section">
+  <div class="container">
+    
+    <div class="founder-row">
+      <div class="founder-img-wrapper">
+        <div class="blob-shape"></div> 
+        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80" 
+             alt="Giuliano - Founder" class="founder-circle">
+      </div>
+      
+      <div class="founder-text-col">
+        <span class="role-badge">The Founder's Guarantee</span>
+        <h2>Led by Giuliano Grasso, Delivered by Experts.</h2>
+        <p class="founder-bio">
+          "I strictly vet and personally train every tutor in our network. We all use the same proven methodology and my custom-built portal to ensure consistency. When you book with us, you aren't just getting a tutor; you are getting my standard of excellence."
+        </p>
+        <div class="founder-signoff">- Giuliano Grasso, Principal Tutor</div>
+      </div>
+    </div>
+
+    <div class="team-values-grid">
+      
+      <div class="value-card">
+        <div class="value-icon-box">
+          <i class="bi bi-award-fill"></i>
+        </div>
+        <h3>Subject Specialists</h3>
+        <p>Undergrads and graduates from top UK universities (Russell Group).</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon-box">
+          <i class="bi bi-shield-lock-fill"></i>
+        </div>
+        <h3>Vetted & Trained</h3>
+        <p>Full DBS checks and rigorous training in our specific exam techniques.</p>
+      </div>
+
+      <div class="value-card">
+        <div class="value-icon-box">
+          <i class="bi bi-graph-up-arrow"></i>
+        </div>
+        <h3>Data-Driven</h3>
+        <p>We don't guess. We use portal data to track homework streaks and weak spots.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .team-section {
+    background-color: #FFFFFF;
+    padding: 5rem 0;
+  }
+
+  /* --- Founder Row --- */
+  .founder-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Image Area with layered depth */
+  .founder-img-wrapper {
+    position: relative;
+    width: 160px; height: 160px;
+    margin-bottom: 2rem;
+    display: flex; justify-content: center; align-items: center;
+  }
+
+  .founder-circle {
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+    border: 4px solid white;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  /* Decorative blob behind image */
+  .blob-shape {
+    position: absolute;
+    width: 100%; height: 100%;
+    background-color: #E8F1EF; /* Sage Green */
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* Organic shape */
+    z-index: 1;
+    animation: morph 8s ease-in-out infinite;
+  }
+
+  /* Typography */
+  .role-badge {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #D4AF37; /* Gold */
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .founder-text-col h2 { 
+    font-family: 'Playfair Display', serif; 
+    color: #1B365D; 
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .founder-bio { 
+    font-size: 1.1rem; 
+    color: #555; 
+    line-height: 1.7; 
+    font-style: italic;
+  }
+
+  .founder-signoff {
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #1B365D;
+    font-family: 'Playfair Display', serif;
+  }
+
+  /* --- Team Values Grid --- */
+  .team-values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .value-card {
+    background: #F9F7F2; /* Warm paper */
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .value-card:hover {
+    transform: translateY(-5px); /* Subtle lift */
+  }
+
+  .value-icon-box { 
+    font-size: 2rem; 
+    color: #1B365D;
+    margin-bottom: 1rem;
+    /* Optional: circle background behind icon */
+    width: 60px; height: 60px;
+    background: white;
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+
+  .value-card h3 { 
+    color: #1B365D; 
+    margin-bottom: 0.8rem; 
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.3rem;
+  }
+  
+  .value-card p { font-size: 0.95rem; color: #444; line-height: 1.5; }
+
+  @keyframes morph {
+    0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    34% { border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%; }
+    67% { border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%; }
+  }
+
+  /* Desktop Media Query */
+  @media (min-width: 768px) {
+    .founder-row {
+      flex-direction: row;
+      text-align: left;
+      align-items: center;
+      gap: 4rem;
+    }
+    .founder-img-wrapper { margin-bottom: 0; width: 200px; height: 200px; flex-shrink: 0;}
+    .founder-circle { width: 180px; height: 180px; }
+    .team-values-grid { grid-template-columns: repeat(3, 1fr); gap: 2rem;}
+  }
+</style>

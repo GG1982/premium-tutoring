@@ -1,0 +1,98 @@
+<footer class="site-footer text-on-dark">
+  <div class="container">
+    <div class="footer-grid">
+      
+      <div class="footer-brand">
+        <div class="footer-logo">Maths Tuition</div>
+        <p class="footer-tagline">Building confidence and academic excellence from KS2 to University.</p>
+      </div>
+
+      <div class="footer-nav">
+        <div class="nav-col">
+          <h4 class="footer-heading">Tuition</h4>
+          <ul class="footer-links">
+            <li><a href="#">Key Stage 3</a></li>
+            <li><a href="#">GCSE Maths</a></li>
+            <li><a href="#">A-Level</a></li>
+          </ul>
+        </div>
+        <div class="nav-col">
+          <h4 class="footer-heading">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">The Portal</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ site.time | date: "%Y" }} Maths Tuition. All rights reserved.</p>
+      <a href="#" class="back-to-top">Back to Top &uarr;</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+    padding: 4rem 0 2rem 0;
+    border-top: 1px solid #D4AF37; /* The 1px Gold Border */
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 Columns for links */
+    gap: 2rem;
+  }
+
+  .footer-heading {
+    color: #D4AF37; /* Gold Foil effect */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links { list-style: none; padding: 0; margin: 0; }
+  .footer-links li { margin-bottom: 0.8rem; }
+  .footer-links a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #D4AF37; }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    opacity: 0.7;
+  }
+
+  .back-to-top { color: #fff; text-decoration: none; }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr 2fr; }
+    .footer-nav { justify-content: end; display: flex; gap: 4rem; }
+  }
+</style>

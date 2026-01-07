@@ -1,0 +1,25 @@
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">Maths Tuition</div>
+      
+      <div class="mobile-menu-toggle">
+        <span>&#9776;</span> </div>
+
+      <div class="desktop-links">
+        <a href="#contact" class="btn-primary" style="padding: 0.5rem 1.5rem; font-size: 1rem;">Book Now</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* Basic Header Styling for Context */
+  .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #1B365D; font-weight: bold; }
+  .desktop-links { display: none; } /* Hidden on mobile */
+  @media(min-width: 768px) {
+    .desktop-links { display: block; }
+    .mobile-menu-toggle { display: none; }
+  }
+</style>

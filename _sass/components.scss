@@ -1,0 +1,81 @@
+// 1. The Device Container & Animation
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.device-mockup {
+  position: relative;
+  background-color: #111111; /* The Bezel */
+  border-radius: 24px;
+  padding: 12px; /* Thickness of the bezel */
+  border: 1px solid #333;
+  /* Gold Outline + Deep Shadow */
+  box-shadow: 
+    0 0 0 2px $color-accent-gold, 
+    0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  
+  /* The Float Animation */
+  animation: float 6s ease-in-out infinite;
+
+  @media (min-width: 768px) {
+    max-width: 480px; /* Larger on desktop */
+  }
+}
+
+// 2. The Screen Area
+.mockup-screen {
+  background-color: #FFFFFF;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3; /* iPad Ratio */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+// 3. Skeleton UI (The Fake Interface)
+.skeleton-header {
+  height: 50px;
+  background-color: $color-primary-brand;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.skeleton-menu-icon {
+  width: 20px; height: 3px; background: rgba(255,255,255,0.5);
+  box-shadow: 0 6px 0 rgba(255,255,255,0.5), 0 12px 0 rgba(255,255,255,0.5);
+}
+
+.skeleton-profile {
+  width: 30px; height: 30px; background: rgba(255,255,255,0.3); border-radius: 50%;
+}
+
+.skeleton-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.skeleton-title-bar {
+  height: 20px; width: 50%; background: #E0E0E0; border-radius: 4px; margin-bottom: 2rem;
+}
+
+.skeleton-progress-container {
+  margin-bottom: 2rem;
+}
+.skeleton-progress-label { height: 10px; width: 30%; background: #E0E0E0; border-radius: 4px; margin-bottom: 8px; }
+.skeleton-progress-track { height: 8px; width: 100%; background: #F0F0F0; border-radius: 10px; overflow: hidden; }
+.skeleton-progress-fill { height: 100%; width: 75%; background: $color-accent-teal; }
+
+.skeleton-list-item {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+}
+.skeleton-check { width: 16px; height: 16px; border-radius: 50%; background: $color-accent-teal; opacity: 0.5; }
+.skeleton-text-line { height: 10px; width: 80%; background: #F5F5F5; border-radius: 4px; }

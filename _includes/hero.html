@@ -1,0 +1,103 @@
+<section class="hero-premium">
+  <div class="container">
+    <div class="hero-split-layout">
+      
+      <div class="hero-text-col">
+        <h1 class="text-white">Mastering Maths.</h1>
+        <p class="text-light-grey">From KS2 confidence to University entry. Powered by our proprietary learning portal.</p>
+        
+        <div class="hero-cta-wrapper">
+          <a href="#demo" class="btn-gold">View Sample Lesson</a>
+          <span class="trust-badge-light">Trusted by 500+ Families</span>
+        </div>
+      </div>
+
+      <div class="hero-visual-col">
+        
+        <div class="device-mockup">
+          <div class="mockup-screen">
+            <!-- <img src="/assets/images/portal-screenshot.jpg" alt="Maths Portal Interface" class="img-fluid"> -->
+            
+            <div class="skeleton-header">
+              <div class="skeleton-menu-icon"></div>
+              <div class="skeleton-profile"></div>
+            </div>
+
+            <div class="skeleton-body">
+              <div class="skeleton-title-bar"></div>
+              
+              <div class="skeleton-progress-container">
+                <div class="skeleton-progress-label"></div>
+                <div class="skeleton-progress-track">
+                  <div class="skeleton-progress-fill"></div>
+                </div>
+              </div>
+
+              <div class="skeleton-list-item">
+                <div class="skeleton-check"></div>
+                <div class="skeleton-text-line"></div>
+              </div>
+              <div class="skeleton-list-item">
+                <div class="skeleton-check"></div>
+                <div class="skeleton-text-line" style="width: 60%"></div>
+              </div>
+              <div class="skeleton-list-item">
+                <div class="skeleton-check"></div>
+                <div class="skeleton-text-line" style="width: 70%"></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Hero Section Specific Styles */
+  .hero-premium {
+    background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
+    padding: 6rem 0 4rem 0;
+    overflow: hidden; /* Captures the floating animation within bounds */
+  }
+
+  .hero-split-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero-text-col {
+    text-align: center;
+    z-index: 2;
+  }
+
+  .text-white { color: #FFFFFF; font-family: 'Playfair Display', serif; font-size: 3rem; line-height: 1.1; margin-bottom: 1rem; }
+  .text-light-grey { color: #E0E0E0; font-size: 1.25rem; font-weight: 300; margin-bottom: 2rem; }
+  
+  .trust-badge-light { display: block; margin-top: 1rem; color: rgba(255,255,255,0.6); font-size: 0.9rem; }
+
+  /* Desktop Layout */
+  @media (min-width: 768px) {
+    .hero-split-layout {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    .hero-text-col {
+      width: 45%;
+      text-align: left;
+    }
+
+    .text-white { font-size: 4rem; }
+
+    .hero-visual-col {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+</style>

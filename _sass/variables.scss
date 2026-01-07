@@ -1,0 +1,27 @@
+// 1. Premium Colour Palette
+
+// Backgrounds
+$color-bg-body: #F9F7F2;      // Cream
+$color-hero-bg: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%); // Deep Navy Gradient
+
+// Text
+$color-text-primary: #2C3E50;
+$color-text-light: #E0E0E0;   // For use on dark backgrounds
+
+// Branding
+$color-primary-brand: #1B365D; // Deep Oxford Blue
+$color-white: #FFFFFF;
+
+// Strategic Accents
+$color-accent-gold: #C5A059; // Muted, Metallic Gold
+$color-accent-teal: #4B7F52;   // Growth / KS2-KS3
+$color-accent-blue: #2E86AB;   // Focus / GCSE
+
+// 2. Typography
+$font-serif: 'Playfair Display', serif;
+$font-sans: 'Lato', sans-serif;
+
+// 3. Spacing & Radius
+$spacing-unit: 24px;
+$border-radius-pill: 50px;
+$border-radius-card: 16px;

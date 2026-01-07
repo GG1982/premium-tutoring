@@ -1,0 +1,104 @@
+- name: "Stefano Massaro"
+  text: "Organised tutoring for my cousin with Giuliano and he’s been brilliant — easy to arrange, engaging lessons, and reasonable prices."
+  level: "KS2"
+  highlight: false
+
+- name: "Akbar"
+  text: "Giuliano helped me achieve a grade A in A-Level Maths and I honestly could not have done it without his incredible support 😄. His clear explanations, challenging practice, and constant availability made a huge difference. I always felt confident going into exams thanks to his guidance."
+  level: "A-Level"
+  highlight: true
+
+- name: "Justine Payne"
+  text: "Giuliano tutored my son in the last year of his GCSE’s. My son was predicted Level 3 maths, but with the help of Giuliano’s dedication to helping my son, he achieved Level 5! Giuliano is thorough, patient, encouraging and amazing! I highly recommend his tutoring!"
+  level: "GCSE"
+  highlight: false
+
+- name: "Aurelie Parnes"
+  text: "Giuliano has been tutoring our children for years and he's a real gem. He explains concepts clearly, adds humour to keep things light, and his passion for maths has helped our kids appreciate the subject."
+  level: "KS2"
+  highlight: false
+
+- name: "Avi Allon"
+  text: "Giuliano helped me achieve a Grade 9 in GCSE Maths and is now supporting me with Maths and Further Maths A-Levels. He’s boosted my skills enormously and is also a kind and considerate mentor."
+  level: "GCSE"
+  highlight: true
+
+- name: "Jo Kercher"
+  text: "Giules is a professional, reliable, and highly capable tutor. My son felt in good hands from the start and knew he could contact Giules anytime if he got stuck. Highly recommended."
+  level: "A-Level"
+  highlight: false
+
+- name: "Adam Lewry"
+  text: "Giuliano’s thorough teaching let me treat school classes as revision, helping me comfortably achieve an A* in A-Level Maths."
+  level: "A-Level"
+  highlight: true
+
+- name: "Michelle Lustig"
+  text: "GG Maths gave our daughter the confidence she needed and helped her achieve her target grade. Giuliano has a warm and encouraging approach."
+  level: "GCSE"
+  highlight: false
+
+- name: "Orli Allon"
+  text: "I used to struggle with maths, getting around level 4s. After working weekly with Giuliano, I achieved a Level 7 (A) in my GCSE 😄. He’s a brilliant tutor who genuinely cares about his students."
+  level: "GCSE"
+  highlight: true
+
+- name: "Karen Gubbay"
+  text: "In 18 months of lessons, my son went from struggling to achieving a Grade 8 in GCSE Maths. Giuliano is approachable, thorough, and made my son feel comfortable asking anything."
+  level: "GCSE"
+  highlight: true
+
+- name: "Stephanie Radhakishun"
+  text: "I got an A in A-Level Maths thanks to Giuliano! He massively improved my skills and exam technique."
+  level: "A-Level"
+  highlight: true
+
+- name: "Rhona"
+  text: "Giuliano’s friendly, approachable style was exactly what our son needed. He achieved a Grade 7 in GCSE Maths, far higher than expected."
+  level: "GCSE"
+  highlight: true
+
+- name: "Ann Davies"
+  text: "Giuliano’s expert knowledge of exam papers and friendly approach gave my son the confidence to aim high. He was on track for a Level 7 in GCSE Maths."
+  level: "GCSE"
+  highlight: true
+
+- name: "Tania"
+  text: "Giuliano helped my son achieve his target grade in GCSE Maths. I’d highly recommend him as a tutor."
+  level: "GCSE"
+  highlight: false
+
+- name: "Chris Harrington"
+  text: "We switched tutors and I’m so glad we did. Giuliano helped my son pass GCSE Maths and enjoy lessons again."
+  level: "GCSE"
+  highlight: false
+
+- name: "Aoife Thompson"
+  text: "Giuliano explained concepts clearly and supported me through my GCSEs. I’d definitely recommend him."
+  level: "GCSE"
+  highlight: false
+
+- name: "Cristiano Murphy"
+  text: "Giuliano was engaging and thorough, helping me secure a Grade A in A-Level Maths and a place at my first-choice university 🙏."
+  level: "A-Level"
+  highlight: true
+
+- name: "Alex Georgiou"
+  text: "With Giuliano’s help, my daughter passed her GCSE Maths with flying colours. He’s now tutoring my nephew, whose grades are climbing fast."
+  level: "GCSE"
+  highlight: false
+
+- name: "Ray Casey"
+  text: "Our son hated school and wasn’t revising, but Giuliano helped him achieve a Grade 5 in Maths 💪🏻✅ and improved his attitude to learning."
+  level: "GCSE"
+  highlight: true
+
+- name: "Ben Halloran"
+  text: "Went from Grade 3 to Grade 7 in under a year! Giuliano really improved my understanding of maths 😁."
+  level: "GCSE"
+  highlight: true
+
+- name: "Rohan J"
+  text: "Giuliano’s teaching methods helped me achieve a Grade 9 in GCSE Maths. Highly recommended."
+  level: "GCSE"
+  highlight: true
