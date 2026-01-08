@@ -738,6 +738,308 @@ h1, h2, h3 {
     width: 50%;
   }
 }
+/* --- Video Stories Section --- */
+.video-stories-section {
+  background-color: #1B365D; /* Dark Navy to match Graph */
+  padding: 0 0 5rem 0; /* Padding bottom only, visually connects to section above */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+
+.video-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-top: 4rem;
+}
+
+/* Grid / Scroll Layout */
+.video-grid {
+  display: flex;
+  gap: 24px;
+  /* Mobile: Horizontal Snap Scroll */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px; /* Space for scrollbar if visible */
+  /* Hide scrollbar */
+  scrollbar-width: none;
+}
+.video-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.video-card {
+  flex: 0 0 85%; /* Mobile: Show 85% of card */
+  scroll-snap-align: center;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.video-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Thumbnail Styling */
+.thumbnail-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  aspect-ratio: 16/9; /* Standard Video Ratio */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.video-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  opacity: 0.8; /* Slight dim to make text pop */
+}
+
+.video-card:hover .video-thumb {
+  transform: scale(1.05);
+  opacity: 0.6;
+}
+
+/* Overlays */
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.play-button {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.video-card:hover .play-button {
+  background-color: #D4AF37; /* Gold on hover */
+  border-color: #D4AF37;
+  transform: scale(1.1);
+}
+
+.result-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #4B7F52; /* Success Green */
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 20px;
+  z-index: 3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Text Content */
+.video-caption {
+  color: #fff;
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  font-family: "Playfair Display", serif;
+}
+
+.student-name {
+  color: #D4AF37; /* Gold text */
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Column Grid */
+    overflow-x: visible; /* Disable scroll */
+  }
+  .video-card {
+    flex: unset; /* Remove flex sizing */
+  }
+}
+/* --- Pull Quote (Editorial Section) --- */
+.pull-quote-section {
+  background-color: #FFFFFF;
+  padding: 6rem 0; /* Generous whitespace = Luxury */
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* The Giant Gold Watermark */
+.quote-watermark {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Playfair Display", serif;
+  font-size: 8rem;
+  line-height: 1;
+  color: rgba(212, 175, 55, 0.15); /* Very faint Gold */
+  z-index: -1; /* Sits behind text */
+  pointer-events: none;
+}
+
+/* The Text */
+.editorial-quote {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem; /* Mobile Size */
+  line-height: 1.6;
+  color: #1B365D; /* Deep Navy */
+  margin: 0 0 2.5rem 0;
+  border: none;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Highlight the key ROI sentence */
+.highlight {
+  background: linear-gradient(120deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0) 100%);
+  box-decoration-break: clone;
+  padding: 0 5px;
+  font-weight: 600;
+}
+
+.quote-attribution-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* 1. The Avatar Styling */
+.author-avatar-link {
+  display: block;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid transparent; /* Invisible border by default */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.author-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* The Author */
+.quote-attribution {
+  display: block;
+  font-family: "Lato", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #D4AF37; /* Solid Gold */
+  font-style: normal;
+}
+
+/* 2. Text Details */
+.author-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.author-name {
+  font-family: "Lato", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #1B365D;
+  font-style: normal;
+}
+
+.uni-tag {
+  color: #D4AF37; /* Gold */
+  text-transform: uppercase; /* CHANGED: Makes it stand out as a status */
+  font-weight: 700; /* Bold to match the uppercase style */
+  font-size: 0.75rem; /* Slightly smaller to keep it elegant */
+  letter-spacing: 1px;
+  display: block; /* Stacks on mobile */
+  margin-top: 4px;
+}
+
+/* 3. The 'Watch his story' Link */
+.watch-story-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #888; /* Muted Grey */
+  font-weight: 500;
+  margin-top: 4px;
+  transition: color 0.2s ease;
+}
+
+.youtube-icon {
+  color: #FF0000; /* YouTube Red */
+  font-size: 1rem;
+}
+
+/* Hover State for Text Link */
+.watch-story-link:hover {
+  color: #1B365D; /* Navy on hover */
+}
+
+/* Desktop Typography */
+@media (min-width: 768px) {
+  .editorial-quote {
+    font-size: 2.2rem; /* Large, impressive font on desktop */
+    line-height: 1.5;
+  }
+  .quote-attribution-block {
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+    gap: 1.5rem;
+  }
+  .author-details {
+    align-items: flex-start;
+  }
+  .uni-tag {
+    display: inline; /* Inline on desktop */
+    margin-left: 8px; /* Little more space from the name */
+    margin-top: 0;
+  }
+  .quote-watermark {
+    font-size: 10rem;
+    top: -50px;
+  }
+}
 /* --- FAQ Section --- */
 .faq-section {
   padding: 4rem 0;
