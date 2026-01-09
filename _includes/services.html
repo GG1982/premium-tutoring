@@ -21,12 +21,16 @@
         <div class="service-card {{ accent_class }}">
           
           <div class="card-content">
-            <div class="card-header">
+          <div class="card-header">
             <div class="icon-circle">
               <i class="bi {{ service.icon_name }}"></i>
             </div>
-              <h3 class="service-title">{{ service.title }}</h3>
-            </div>
+            <h3 class="service-title">
+              <a href="{{ service.page_url }}" style="text-decoration: none; color: inherit;">
+                {{ service.title }}
+              </a>
+            </h3>
+          </div>
             
             <p class="service-desc">{{ service.description }}</p>
 
