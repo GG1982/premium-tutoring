@@ -5,31 +5,44 @@
       <div class="footer-brand">
         <div class="footer-logo">Maths Tuition</div>
         <p class="footer-tagline">Building confidence and academic excellence from KS2 to University.</p>
+        
+        <div class="footer-contact">
+          <a href="mailto:giuliano@example.com" class="contact-link">
+            <i class="bi bi-envelope"></i> info@ggmaths.co.uk
+          </a>
+          <p class="location-text"><i class="bi bi-geo-alt"></i> Based in London, Teaching Online</p>
+        </div>
       </div>
 
-      <div class="footer-nav">
-        <div class="nav-col">
-          <h4 class="footer-heading">Tuition</h4>
-          <ul class="footer-links">
-            <li><a href="#">Key Stage 3</a></li>
-            <li><a href="#">GCSE Maths</a></li>
-            <li><a href="#">A-Level</a></li>
-          </ul>
-        </div>
-        <div class="nav-col">
-          <h4 class="footer-heading">Company</h4>
-          <ul class="footer-links">
-            <li><a href="#">About</a></li>
-            <li><a href="#">The Portal</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
+      <div class="nav-col">
+        <h4 class="footer-heading">Tuition</h4>
+        <ul class="footer-links">
+          <li><a href="/services#ks3">Key Stage 3</a></li>
+          <li><a href="/services#gcse">GCSE Maths</a></li>
+          <li><a href="/services#alevel">A-Level Maths</a></li>
+          <li><a href="/services#uni">University Entrance</a></li>
+        </ul>
+      </div>
+
+      <div class="nav-col">
+        <h4 class="footer-heading">Company</h4>
+        <ul class="footer-links">
+          <li><a href="/about">About Giuliano</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="https://portal.yourwebsite.com" class="portal-link">Student Portal Login <i class="bi bi-arrow-right-short"></i></a></li>
+        </ul>
       </div>
 
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; {{ site.time | date: "%Y" }} Maths Tuition. All rights reserved.</p>
+      <div class="copyright">
+        &copy; {{ site.time | date: "%Y" }} Maths Tuition. All rights reserved.
+      </div>
+      <div class="trust-badges">
+        <span class="dbs-badge"><i class="bi bi-shield-check"></i> DBS Enhanced Certified</span>
+      </div>
       <a href="#" class="back-to-top">Back to Top &uarr;</a>
     </div>
   </div>
@@ -37,62 +50,82 @@
 
 <style>
   .site-footer {
-    background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%);
-    padding: 4rem 0 2rem 0;
-    border-top: 1px solid #D4AF37; /* The 1px Gold Border */
+    /* Changed from Teal Gradient to Brand Navy Gradient */
+    background: linear-gradient(180deg, #1B365D 0%, #0F2027 100%);
+    padding: 5rem 0 2rem 0;
+    color: white;
+    border-top: 4px solid #D4AF37; /* Thicker Gold Border looks more premium */
   }
 
   .footer-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
 
+  /* Brand Column */
   .footer-logo {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: #FFFFFF;
     margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .footer-tagline { 
+    opacity: 0.8; line-height: 1.6; margin-bottom: 1.5rem; max-width: 300px; 
   }
 
-  .footer-nav {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 Columns for links */
-    gap: 2rem;
+  .footer-contact .contact-link {
+    display: block; color: #D4AF37; text-decoration: none; margin-bottom: 0.5rem;
+    font-weight: 600;
   }
+  .footer-contact .contact-link:hover { text-decoration: underline; }
+  
+  .location-text { font-size: 0.9rem; opacity: 0.6; }
 
+  /* Navigation Columns */
   .footer-heading {
-    color: #D4AF37; /* Gold Foil effect */
+    color: #D4AF37; /* Gold */
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+    letter-spacing: 1.5px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
   }
 
   .footer-links { list-style: none; padding: 0; margin: 0; }
   .footer-links li { margin-bottom: 0.8rem; }
   .footer-links a {
-    color: rgba(255,255,255,0.9);
+    color: rgba(255,255,255,0.7);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: all 0.2s;
+    font-size: 0.95rem;
   }
-  .footer-links a:hover { color: #D4AF37; }
+  .footer-links a:hover { color: #FFFFFF; transform: translateX(5px); display: inline-block; }
 
+  /* The Special Portal Link */
+  .portal-link { color: #fff !important; font-weight: bold; }
+
+  /* Bottom Strip */
   .footer-bottom {
     border-top: 1px solid rgba(255,255,255,0.1);
     padding-top: 2rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
     font-size: 0.85rem;
     opacity: 0.7;
+    text-align: center;
   }
 
+  .dbs-badge { color: #4B7F52; /* Sage Green for safety */ font-weight: bold; }
   .back-to-top { color: #fff; text-decoration: none; }
 
   /* Desktop */
   @media (min-width: 768px) {
-    .footer-grid { grid-template-columns: 1fr 2fr; }
-    .footer-nav { justify-content: end; display: flex; gap: 4rem; }
+    .footer-grid { grid-template-columns: 2fr 1fr 1fr; }
+    .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; }
   }
 </style>
