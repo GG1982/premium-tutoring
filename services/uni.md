@@ -3,7 +3,7 @@ layout: services
 title: University Entrance
 subtitle: "Elite preparation for STEP, MAT, TMUA, and AEA to secure places at Oxford, Cambridge, Imperial, and Warwick."
 icon: "bi bi-bank"
-permalink: /services/uni-entrance/
+permalink: /services/uni
 
 challenges:
   - "Finding that A-Level Maths knowledge is not enough to solve admission problems."
