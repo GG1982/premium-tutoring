@@ -89,1041 +89,6 @@ h1, h2, h3 {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.about-section {
-  background-color: #FFFFFF;
-  padding: 4rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-}
-.about-section .about-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: center;
-}
-.about-section .about-image-wrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-.about-section .profile-img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  filter: sepia(20%);
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-.about-section .profile-img:hover {
-  filter: sepia(0%);
-  transform: scale(1.02);
-}
-.about-section .about-content {
-  text-align: center;
-}
-.about-section .about-badges {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-}
-.about-section .badge {
-  display: inline-block;
-  background-color: rgba(27, 54, 93, 0.1);
-  color: #1B365D;
-  font-family: "Lato", sans-serif;
-  font-weight: 700;
-  font-size: 0.875rem;
-  padding: 8px 16px;
-  border-radius: 50px;
-}
-@media (min-width: 768px) {
-  .about-section .about-grid {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 3rem;
-  }
-  .about-section .about-image-wrapper {
-    width: 40%;
-    justify-content: flex-start;
-  }
-  .about-section .profile-img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    aspect-ratio: 1/1.2;
-  }
-  .about-section .about-content {
-    width: 60%;
-    text-align: left;
-    padding-top: 1rem;
-  }
-  .about-section .about-badges {
-    justify-content: flex-start;
-  }
-}
-
-/* --- Trust Banner / Snap-Scroll Hybrid --- */
-.trust-banner {
-  background-color: #F9F7F2;
-  padding: 3rem 0;
-  position: relative; /* Context for fade mask */
-}
-
-.trust-headline {
-  font-family: "Playfair Display", serif;
-  color: #1B365D;
-  margin-bottom: 0.5rem;
-}
-
-/* --- Review Card Styles --- */
-.review-card {
-  background: #FFFFFF;
-  --review-card-padding: 24px;
-  padding: var(--review-card-padding);
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 1px solid rgba(0, 0, 0, 0.03);
-  position: relative; /* Context for absolute badge */
-  transition: transform 0.2s ease;
-}
-
-/* Absolute Badge (Bottom Right) */
-.absolute-badge {
-  position: absolute;
-  bottom: var(--review-card-padding);
-  right: var(--review-card-padding);
-}
-
-/* Highlight Effect (Yellow Marker) */
-.text-highlight {
-  background: linear-gradient(120deg, rgba(255, 235, 59, 0.4) 0%, rgba(255, 235, 59, 0.4) 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 40%;
-  background-position: 0 88%; /* Bottom underline highlighter style */
-  font-weight: 700;
-  color: #1B365D;
-}
-
-/* Badge Colors */
-.level-badge {
-  font-size: 0.7rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 4px 10px;
-  border-radius: 50px;
-}
-
-.badge-gold {
-  background-color: #FFF8E1;
-  color: #B8860B;
-}
-
-.badge-blue {
-  background-color: #E3F2FD;
-  color: #1565C0;
-}
-
-.badge-green {
-  background-color: #E8F5E9;
-  color: #2E7D32;
-}
-
-/* Stars & Text */
-.stars {
-  color: #FFB400;
-  letter-spacing: 2px;
-  margin-bottom: 12px;
-  font-size: 1.1rem;
-  margin-top: 1rem;
-}
-
-.review-text {
-  font-size: 1rem;
-  color: #2C3E50;
-  font-style: italic;
-  line-height: 1.5;
-  margin-bottom: 16px;
-}
-
-.review-footer {
-  border-top: 1px solid #F0F0F0;
-  padding-top: 12px;
-}
-
-.review-name {
-  font-weight: 700;
-  font-size: 0.9rem;
-  color: #1B365D;
-}
-
-/* --- DESKTOP (>768px): Infinite Marquee --- */
-@media (min-width: 768px) {
-  .marquee-wrapper {
-    width: 100%;
-    overflow: hidden;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-  }
-  .marquee-content {
-    display: flex;
-    gap: 24px;
-    width: max-content;
-    animation: scroll 60s linear infinite;
-    padding-left: 24px;
-  }
-  .review-card {
-    flex: 0 0 350px;
-  }
-  /* Pause on Hover */
-  .marquee-wrapper:hover .marquee-content {
-    animation-play-state: paused;
-  }
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-}
-/* --- MOBILE (<768px): Snap-Scroll with Peek Effect --- */
-@media (max-width: 767px) {
-  /* The Container */
-  .marquee-wrapper {
-    width: 100%;
-    position: relative;
-    /* No mask-image on mobile, we use the Fade Mask instead */
-  }
-  /* The "Fade Mask" on the right edge */
-  .marquee-wrapper::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100%;
-    width: 15%; /* 15% width fade */
-    background: linear-gradient(to right, rgba(249, 247, 242, 0), rgb(249, 247, 242));
-    pointer-events: none; /* Allows scrolling 'through' the fade */
-    z-index: 2;
-  }
-  /* The Content Track */
-  .marquee-content {
-    display: flex;
-    gap: 16px;
-    padding: 0 24px; /* Side padding so first card isn't flush */
-    /* Scroll Properties */
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    /* Hide Scrollbar */
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE */
-  }
-  .marquee-content::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
-  }
-  /* The Cards */
-  .review-card {
-    flex: 0 0 85%; /* 85% Width = The Peek Effect */
-    scroll-snap-align: center; /* Snaps to center of screen */
-    margin-right: 0;
-  }
-}
-/* --- Habit Hero Section --- */
-.habit-section {
-  padding: 4rem 0;
-  background: linear-gradient(to bottom, #FFFDF5, #FFF8E1);
-  border-top: 1px solid #EAD8B1;
-}
-
-.habit-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  align-items: center;
-}
-
-/* --- Left Column: Voucher & Hook --- */
-.habit-col-left {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  text-align: center;
-  align-items: center;
-}
-
-.habit-text h2 {
-  font-family: "Playfair Display", serif;
-  color: #1B365D;
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-
-.habit-text p {
-  color: #444;
-  line-height: 1.6;
-}
-
-/* The CSS Voucher Card */
-.voucher-wrapper {
-  order: -1;
-  margin-bottom: 1rem;
-}
-
-.voucher-card {
-  background: #232F3E;
-  color: white;
-  border-radius: 8px;
-  padding: 20px;
-  width: 260px;
-  height: 150px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transform: rotate(-3deg);
-  transition: transform 0.3s ease;
-}
-.voucher-card:hover {
-  transform: rotate(0deg) scale(1.02);
-}
-
-.voucher-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.voucher-amt {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #FF9900;
-  line-height: 1;
-}
-
-.voucher-label {
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  color: #ccc;
-  letter-spacing: 1px;
-}
-
-.voucher-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.voucher-brand {
-  font-size: 0.9rem;
-  font-weight: bold;
-}
-
-/* --- Right Column: Checklist --- */
-.habit-col-right {
-  background: rgba(255, 255, 255, 0.5);
-  padding: 2rem;
-  border-radius: 16px;
-  width: 100%;
-  border: 1px solid rgba(212, 175, 55, 0.2);
-}
-
-.benefit-header {
-  margin-top: 0;
-  color: #1B365D;
-  font-family: "Lato", sans-serif;
-  font-size: 1.1rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 1.5rem;
-}
-
-.benefit-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.benefit-list li {
-  display: flex;
-  align-items: center;
-  font-size: 1.05rem;
-  color: #333;
-}
-
-.check-icon {
-  color: #4B7F52;
-  font-weight: bold;
-  margin-right: 12px;
-  font-size: 1.2rem;
-}
-
-/* --- Desktop Layout (>768px) --- */
-@media (min-width: 768px) {
-  .habit-grid {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .habit-col-left {
-    width: 45%;
-    text-align: left;
-    align-items: flex-start;
-  }
-  .voucher-wrapper {
-    order: 0;
-    align-self: flex-start;
-  }
-  .habit-col-right {
-    width: 45%;
-  }
-}
-/* --- Methodology Section --- */
-.methodology-section {
-  background-color: #FFFFFF;
-  padding: 5rem 0;
-  border-bottom: 1px solid #F0F0F0;
-}
-
-.method-header {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 4rem auto;
-}
-
-.method-header h2 {
-  font-family: "Playfair Display", serif;
-  color: #1B365D;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.method-sub {
-  font-size: 1.1rem;
-  color: #666;
-}
-
-/* Grid Layout */
-.method-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-/* Card Styling */
-.method-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  padding: 1.5rem;
-  border-radius: 12px;
-  transition: background-color 0.3s ease;
-  /* Optional: Subtle hover state */
-}
-.method-card:hover {
-  background-color: #F9F7F2; /* Warm Cream Fade */
-}
-
-/* Icon Styling */
-.icon-wrapper {
-  flex-shrink: 0;
-  width: 50px;
-  height: 50px;
-  background-color: rgba(27, 54, 93, 0.05); /* Faint Navy BG */
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #1B365D; /* Brand Navy */
-  font-size: 1.5rem;
-}
-
-.text-wrapper h3 {
-  margin: 0 0 0.5rem 0;
-  color: #1B365D;
-  font-family: "Playfair Display", serif;
-  font-size: 1.25rem;
-}
-
-.text-wrapper p {
-  margin: 0;
-  font-size: 1rem;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* Desktop Layout */
-@media (min-width: 768px) {
-  .method-grid {
-    grid-template-columns: 1fr 1fr; /* 2x2 Grid */
-    column-gap: 4rem;
-    row-gap: 3rem;
-  }
-}
-/* --- Results Graph Section --- */
-.results-section {
-  background-color: #1B365D; /* Dark Navy */
-  padding: 5rem 0;
-  color: #FFFFFF;
-  overflow: hidden; /* Contains chart animations */
-}
-
-.results-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-  align-items: center;
-}
-
-/* Text Column */
-.results-text {
-  text-align: center;
-}
-
-.results-text h2 {
-  font-family: "Playfair Display", serif;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  color: #FFFFFF;
-}
-
-.text-gold {
-  color: #D4AF37;
-}
-
-.stat-highlight {
-  margin-top: 2rem;
-  display: inline-block;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #D4AF37;
-  display: block;
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: 0.9rem;
-  color: #ccc;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Chart Column */
-.chart-wrapper {
-  width: 100%;
-  max-width: 400px; /* Slightly narrower for focus */
-  height: 350px;
-  position: relative;
-  margin: 0 auto; /* Center it */
-}
-
-/* Bars Container */
-.bars-container {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-around;
-  height: 100%;
-  position: relative;
-  z-index: 1;
-  padding-left: 0;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.bar-group {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  height: 100%;
-  width: 80px;
-}
-
-.bar {
-  width: 100%;
-  border-radius: 8px 8px 0 0;
-  position: relative;
-  transform-origin: bottom;
-}
-
-/* Bar 1: Start (Grade 4 ~ 45% height) */
-.bar-start {
-  height: 35%;
-  background-color: #5A718C; /* Muted Blue/Grey */
-}
-
-/* Bar 2: End (Grade 8 ~ 85% height) */
-.bar-end {
-  height: 85%;
-  background: linear-gradient(to top, #C5A059, #F2D088); /* Vibrant Gold Gradient */
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); /* Glow */
-  animation-delay: 0.4s; /* Delay slightly so it grows second */
-}
-
-.bar-value {
-  position: absolute;
-  top: -40px; /* Float above the bar */
-  width: auto;
-  left: 50%;
-  transform: translateX(-50%);
-  /* Pill Styling */
-  background: rgba(255, 255, 255, 0.1);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: #fff;
-  white-space: nowrap;
-  backdrop-filter: blur(4px);
-}
-
-.bar-label {
-  margin-top: 15px;
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-}
-
-/* The Delta (+4 Grades) */
-.delta-connector {
-  position: absolute;
-  top: 20%; /* Position near top of Grade 8 bar */
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-}
-
-.delta-badge {
-  background-color: #4B7F52; /* Growth Green */
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-weight: bold;
-  font-size: 0.9rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  white-space: nowrap;
-}
-
-/* Mobile Layout */
-@media (max-width: 767px) {
-  .bars-container {
-    justify-content: space-between;
-  }
-}
-/* Desktop Layout */
-@media (min-width: 768px) {
-  .results-grid {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-  .results-text {
-    width: 45%;
-    text-align: left;
-  }
-  .chart-wrapper {
-    width: 50%;
-  }
-}
-/* --- Video Stories Section --- */
-.video-stories-section {
-  background-color: #1B365D; /* Dark Navy to match Graph */
-  padding: 0 0 5rem 0; /* Padding bottom only, visually connects to section above */
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
-}
-
-.video-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  padding-top: 4rem;
-}
-
-/* Grid / Scroll Layout */
-.video-grid {
-  display: flex;
-  gap: 24px;
-  /* Mobile: Horizontal Snap Scroll */
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 20px; /* Space for scrollbar if visible */
-  /* Hide scrollbar */
-  scrollbar-width: none;
-}
-.video-grid::-webkit-scrollbar {
-  display: none;
-}
-
-.video-card {
-  flex: 0 0 85%; /* Mobile: Show 85% of card */
-  scroll-snap-align: center;
-  text-decoration: none;
-  display: block;
-  transition: transform 0.3s ease;
-}
-.video-card:hover {
-  transform: translateY(-5px);
-}
-
-/* Thumbnail Styling */
-.thumbnail-wrapper {
-  position: relative;
-  border-radius: 16px;
-  overflow: hidden;
-  margin-bottom: 1rem;
-  aspect-ratio: 16/9; /* Standard Video Ratio */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.video-thumb {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-  opacity: 0.8; /* Slight dim to make text pop */
-}
-
-.video-card:hover .video-thumb {
-  transform: scale(1.05);
-  opacity: 0.6;
-}
-
-/* Overlays */
-.play-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-
-.play-button {
-  width: 60px;
-  height: 60px;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(4px);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  border: 2px solid #fff;
-  transition: all 0.3s ease;
-}
-
-.video-card:hover .play-button {
-  background-color: #D4AF37; /* Gold on hover */
-  border-color: #D4AF37;
-  transform: scale(1.1);
-}
-
-.result-badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: #4B7F52; /* Success Green */
-  color: white;
-  font-size: 0.8rem;
-  font-weight: bold;
-  padding: 6px 12px;
-  border-radius: 20px;
-  z-index: 3;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Text Content */
-.video-caption {
-  color: #fff;
-  font-size: 1.1rem;
-  font-style: italic;
-  margin-bottom: 0.5rem;
-  font-family: "Playfair Display", serif;
-}
-
-.student-name {
-  color: #D4AF37; /* Gold text */
-  font-size: 0.9rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Desktop Layout */
-@media (min-width: 768px) {
-  .video-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Column Grid */
-    overflow-x: visible; /* Disable scroll */
-  }
-  .video-card {
-    flex: unset; /* Remove flex sizing */
-  }
-}
-/* --- Pull Quote (Editorial Section) --- */
-.pull-quote-section {
-  background-color: #FFFFFF;
-  padding: 6rem 0; /* Generous whitespace = Luxury */
-  position: relative;
-  overflow: hidden;
-}
-
-.quote-container {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  z-index: 1;
-}
-
-/* The Giant Gold Watermark */
-.quote-watermark {
-  position: absolute;
-  top: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: "Playfair Display", serif;
-  font-size: 8rem;
-  line-height: 1;
-  color: rgba(212, 175, 55, 0.15); /* Very faint Gold */
-  z-index: -1; /* Sits behind text */
-  pointer-events: none;
-}
-
-/* The Text */
-.editorial-quote {
-  font-family: "Playfair Display", serif;
-  font-size: 1.5rem; /* Mobile Size */
-  line-height: 1.6;
-  color: #1B365D; /* Deep Navy */
-  margin: 0 0 2.5rem 0;
-  border: none;
-  font-style: italic;
-  font-weight: 500;
-}
-
-/* Highlight the key ROI sentence */
-.highlight {
-  background: linear-gradient(120deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0) 100%);
-  box-decoration-break: clone;
-  padding: 0 5px;
-  font-weight: 600;
-}
-
-.quote-attribution-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-/* 1. The Avatar Styling */
-.author-avatar-link {
-  display: block;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid transparent; /* Invisible border by default */
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.author-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-/* The Author */
-.quote-attribution {
-  display: block;
-  font-family: "Lato", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #D4AF37; /* Solid Gold */
-  font-style: normal;
-}
-
-/* 2. Text Details */
-.author-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.author-name {
-  font-family: "Lato", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #1B365D;
-  font-style: normal;
-}
-
-.uni-tag {
-  color: #D4AF37; /* Gold */
-  text-transform: uppercase; /* CHANGED: Makes it stand out as a status */
-  font-weight: 700; /* Bold to match the uppercase style */
-  font-size: 0.75rem; /* Slightly smaller to keep it elegant */
-  letter-spacing: 1px;
-  display: block; /* Stacks on mobile */
-  margin-top: 4px;
-}
-
-/* 3. The 'Watch his story' Link */
-.watch-story-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  font-size: 1rem;
-  color: #888; /* Muted Grey */
-  font-weight: 500;
-  margin-top: 4px;
-  transition: color 0.2s ease;
-}
-
-.youtube-icon {
-  color: #FF0000; /* YouTube Red */
-  font-size: 1rem;
-}
-
-/* Hover State for Text Link */
-.watch-story-link:hover {
-  color: #1B365D; /* Navy on hover */
-}
-
-/* Desktop Typography */
-@media (min-width: 768px) {
-  .editorial-quote {
-    font-size: 2.2rem; /* Large, impressive font on desktop */
-    line-height: 1.5;
-  }
-  .quote-attribution-block {
-    flex-direction: row;
-    justify-content: center;
-    text-align: left;
-    gap: 1.5rem;
-  }
-  .author-details {
-    align-items: flex-start;
-  }
-  .uni-tag {
-    display: inline; /* Inline on desktop */
-    margin-left: 8px; /* Little more space from the name */
-    margin-top: 0;
-  }
-  .quote-watermark {
-    font-size: 10rem;
-    top: -50px;
-  }
-}
-/* --- FAQ Section --- */
-.faq-section {
-  padding: 4rem 0;
-  background-color: #F9F7F2; /* Cream background to let white bars pop */
-}
-
-.faq-container {
-  max-width: 800px; /* Narrower container for readability */
-  margin: 0 auto;
-}
-
-.faq-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.faq-item {
-  background-color: #FFFFFF;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
-  overflow: hidden;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
-  /* Hover effect for the whole bar */
-}
-.faq-item:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-  border-color: rgba(27, 54, 93, 0.1);
-}
-
-/* The Clickable Header */
-summary {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem;
-  cursor: pointer;
-  list-style: none; /* Hides default marker */
-  font-weight: bold;
-  color: #1B365D;
-  font-family: "Playfair Display", serif;
-  font-size: 1.1rem;
-}
-
-/* Hide default marker in Webkit */
-summary::-webkit-details-marker {
-  display: none;
-}
-
-/* The Chevron Icon */
-.faq-icon {
-  color: #D4AF37; /* Gold Icon */
-  display: flex;
-  align-items: center;
-  transition: transform 0.3s ease;
-}
-
-/* Rotate Icon when Open */
-details[open] .faq-icon {
-  transform: rotate(180deg);
-}
-
-/* The Answer Text */
-.faq-answer {
-  padding: 0 1.5rem 1.5rem 1.5rem;
-  color: #555;
-  line-height: 1.6;
-  font-size: 1rem;
-  border-top: 1px solid transparent;
-  /* Optional: Mild animation for appearing text */
-  animation: fadeDown 0.3s ease-in-out;
-}
-
-@keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -2497,6 +1462,1041 @@ details[open] .faq-icon {
   }
   .youtube-text-col {
     text-align: left;
+  }
+}
+.about-section {
+  background-color: #FFFFFF;
+  padding: 4rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+.about-section .about-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+.about-section .about-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.about-section .profile-img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  filter: sepia(20%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.about-section .profile-img:hover {
+  filter: sepia(0%);
+  transform: scale(1.02);
+}
+.about-section .about-content {
+  text-align: center;
+}
+.about-section .about-badges {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.about-section .badge {
+  display: inline-block;
+  background-color: rgba(27, 54, 93, 0.1);
+  color: #1B365D;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 8px 16px;
+  border-radius: 50px;
+}
+@media (min-width: 768px) {
+  .about-section .about-grid {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+  .about-section .about-image-wrapper {
+    width: 40%;
+    justify-content: flex-start;
+  }
+  .about-section .profile-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    aspect-ratio: 1/1.2;
+  }
+  .about-section .about-content {
+    width: 60%;
+    text-align: left;
+    padding-top: 1rem;
+  }
+  .about-section .about-badges {
+    justify-content: flex-start;
+  }
+}
+
+/* --- Trust Banner / Snap-Scroll Hybrid --- */
+.trust-banner {
+  background-color: #F9F7F2;
+  padding: 3rem 0;
+  position: relative; /* Context for fade mask */
+}
+
+.trust-headline {
+  font-family: "Playfair Display", serif;
+  color: #1B365D;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Review Card Styles --- */
+.review-card {
+  background: #FFFFFF;
+  --review-card-padding: 24px;
+  padding: var(--review-card-padding);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  position: relative; /* Context for absolute badge */
+  transition: transform 0.2s ease;
+}
+
+/* Absolute Badge (Bottom Right) */
+.absolute-badge {
+  position: absolute;
+  bottom: var(--review-card-padding);
+  right: var(--review-card-padding);
+}
+
+/* Highlight Effect (Yellow Marker) */
+.text-highlight {
+  background: linear-gradient(120deg, rgba(255, 235, 59, 0.4) 0%, rgba(255, 235, 59, 0.4) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 88%; /* Bottom underline highlighter style */
+  font-weight: 700;
+  color: #1B365D;
+}
+
+/* Badge Colors */
+.level-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 50px;
+}
+
+.badge-gold {
+  background-color: #FFF8E1;
+  color: #B8860B;
+}
+
+.badge-blue {
+  background-color: #E3F2FD;
+  color: #1565C0;
+}
+
+.badge-green {
+  background-color: #E8F5E9;
+  color: #2E7D32;
+}
+
+/* Stars & Text */
+.stars {
+  color: #FFB400;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.review-text {
+  font-size: 1rem;
+  color: #2C3E50;
+  font-style: italic;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.review-footer {
+  border-top: 1px solid #F0F0F0;
+  padding-top: 12px;
+}
+
+.review-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1B365D;
+}
+
+/* --- DESKTOP (>768px): Infinite Marquee --- */
+@media (min-width: 768px) {
+  .marquee-wrapper {
+    width: 100%;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  .marquee-content {
+    display: flex;
+    gap: 24px;
+    width: max-content;
+    animation: scroll 60s linear infinite;
+    padding-left: 24px;
+  }
+  .review-card {
+    flex: 0 0 350px;
+  }
+  /* Pause on Hover */
+  .marquee-wrapper:hover .marquee-content {
+    animation-play-state: paused;
+  }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+}
+/* --- MOBILE (<768px): Snap-Scroll with Peek Effect --- */
+@media (max-width: 767px) {
+  /* The Container */
+  .marquee-wrapper {
+    width: 100%;
+    position: relative;
+    /* No mask-image on mobile, we use the Fade Mask instead */
+  }
+  /* The "Fade Mask" on the right edge */
+  .marquee-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 15%; /* 15% width fade */
+    background: linear-gradient(to right, rgba(249, 247, 242, 0), rgb(249, 247, 242));
+    pointer-events: none; /* Allows scrolling 'through' the fade */
+    z-index: 2;
+  }
+  /* The Content Track */
+  .marquee-content {
+    display: flex;
+    gap: 16px;
+    padding: 0 24px; /* Side padding so first card isn't flush */
+    /* Scroll Properties */
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    /* Hide Scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE */
+  }
+  .marquee-content::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+  /* The Cards */
+  .review-card {
+    flex: 0 0 85%; /* 85% Width = The Peek Effect */
+    scroll-snap-align: center; /* Snaps to center of screen */
+    margin-right: 0;
+  }
+}
+/* --- Habit Hero Section --- */
+.habit-section {
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, #FFFDF5, #FFF8E1);
+  border-top: 1px solid #EAD8B1;
+}
+
+.habit-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* --- Left Column: Voucher & Hook --- */
+.habit-col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  align-items: center;
+}
+
+.habit-text h2 {
+  font-family: "Playfair Display", serif;
+  color: #1B365D;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.habit-text p {
+  color: #444;
+  line-height: 1.6;
+}
+
+/* The CSS Voucher Card */
+.voucher-wrapper {
+  order: -1;
+  margin-bottom: 1rem;
+}
+
+.voucher-card {
+  background: #232F3E;
+  color: white;
+  border-radius: 8px;
+  padding: 20px;
+  width: 260px;
+  height: 150px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease;
+}
+.voucher-card:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.voucher-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.voucher-amt {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #FF9900;
+  line-height: 1;
+}
+
+.voucher-label {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: #ccc;
+  letter-spacing: 1px;
+}
+
+.voucher-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.voucher-brand {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* --- Right Column: Checklist --- */
+.habit-col-right {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 2rem;
+  border-radius: 16px;
+  width: 100%;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.benefit-header {
+  margin-top: 0;
+  color: #1B365D;
+  font-family: "Lato", sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.benefit-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  color: #333;
+}
+
+.check-icon {
+  color: #4B7F52;
+  font-weight: bold;
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+/* --- Desktop Layout (>768px) --- */
+@media (min-width: 768px) {
+  .habit-grid {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .habit-col-left {
+    width: 45%;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .voucher-wrapper {
+    order: 0;
+    align-self: flex-start;
+  }
+  .habit-col-right {
+    width: 45%;
+  }
+}
+/* --- Methodology Section --- */
+.methodology-section {
+  background-color: #FFFFFF;
+  padding: 5rem 0;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.method-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 4rem auto;
+}
+
+.method-header h2 {
+  font-family: "Playfair Display", serif;
+  color: #1B365D;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.method-sub {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+/* Grid Layout */
+.method-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* Card Styling */
+.method-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+  /* Optional: Subtle hover state */
+}
+.method-card:hover {
+  background-color: #F9F7F2; /* Warm Cream Fade */
+}
+
+/* Icon Styling */
+.icon-wrapper {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(27, 54, 93, 0.05); /* Faint Navy BG */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1B365D; /* Brand Navy */
+  font-size: 1.5rem;
+}
+
+.text-wrapper h3 {
+  margin: 0 0 0.5rem 0;
+  color: #1B365D;
+  font-family: "Playfair Display", serif;
+  font-size: 1.25rem;
+}
+
+.text-wrapper p {
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+  .method-grid {
+    grid-template-columns: 1fr 1fr; /* 2x2 Grid */
+    column-gap: 4rem;
+    row-gap: 3rem;
+  }
+}
+/* --- Results Graph Section --- */
+.results-section {
+  background-color: #1B365D; /* Dark Navy */
+  padding: 5rem 0;
+  color: #FFFFFF;
+  overflow: hidden; /* Contains chart animations */
+}
+
+.results-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Text Column */
+.results-text {
+  text-align: center;
+}
+
+.results-text h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #FFFFFF;
+}
+
+.text-gold {
+  color: #D4AF37;
+}
+
+.stat-highlight {
+  margin-top: 2rem;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #D4AF37;
+  display: block;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #ccc;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Chart Column */
+.chart-wrapper {
+  width: 100%;
+  max-width: 400px; /* Slightly narrower for focus */
+  height: 350px;
+  position: relative;
+  margin: 0 auto; /* Center it */
+}
+
+/* Bars Container */
+.bars-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  padding-left: 0;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.bar-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  width: 80px;
+}
+
+.bar {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+  transform-origin: bottom;
+}
+
+/* Bar 1: Start (Grade 4 ~ 45% height) */
+.bar-start {
+  height: 35%;
+  background-color: #5A718C; /* Muted Blue/Grey */
+}
+
+/* Bar 2: End (Grade 8 ~ 85% height) */
+.bar-end {
+  height: 85%;
+  background: linear-gradient(to top, #C5A059, #F2D088); /* Vibrant Gold Gradient */
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); /* Glow */
+  animation-delay: 0.4s; /* Delay slightly so it grows second */
+}
+
+.bar-value {
+  position: absolute;
+  top: -40px; /* Float above the bar */
+  width: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Pill Styling */
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  white-space: nowrap;
+  backdrop-filter: blur(4px);
+}
+
+.bar-label {
+  margin-top: 15px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+/* The Delta (+4 Grades) */
+.delta-connector {
+  position: absolute;
+  top: 20%; /* Position near top of Grade 8 bar */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.delta-badge {
+  background-color: #4B7F52; /* Growth Green */
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+/* Mobile Layout */
+@media (max-width: 767px) {
+  .bars-container {
+    justify-content: space-between;
+  }
+}
+/* Desktop Layout */
+@media (min-width: 768px) {
+  .results-grid {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .results-text {
+    width: 45%;
+    text-align: left;
+  }
+  .chart-wrapper {
+    width: 50%;
+  }
+}
+/* --- Video Stories Section --- */
+.video-stories-section {
+  background-color: #1B365D; /* Dark Navy to match Graph */
+  padding: 0 0 5rem 0; /* Padding bottom only, visually connects to section above */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+}
+
+.video-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-top: 4rem;
+}
+
+/* Grid / Scroll Layout */
+.video-grid {
+  display: flex;
+  gap: 24px;
+  /* Mobile: Horizontal Snap Scroll */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 20px; /* Space for scrollbar if visible */
+  /* Hide scrollbar */
+  scrollbar-width: none;
+}
+.video-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.video-card {
+  flex: 0 0 85%; /* Mobile: Show 85% of card */
+  scroll-snap-align: center;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.video-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Thumbnail Styling */
+.thumbnail-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  aspect-ratio: 16/9; /* Standard Video Ratio */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.video-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  opacity: 0.8; /* Slight dim to make text pop */
+}
+
+.video-card:hover .video-thumb {
+  transform: scale(1.05);
+  opacity: 0.6;
+}
+
+/* Overlays */
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.play-button {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.video-card:hover .play-button {
+  background-color: #D4AF37; /* Gold on hover */
+  border-color: #D4AF37;
+  transform: scale(1.1);
+}
+
+.result-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #4B7F52; /* Success Green */
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 6px 12px;
+  border-radius: 20px;
+  z-index: 3;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Text Content */
+.video-caption {
+  color: #fff;
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  font-family: "Playfair Display", serif;
+}
+
+.student-name {
+  color: #D4AF37; /* Gold text */
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Column Grid */
+    overflow-x: visible; /* Disable scroll */
+  }
+  .video-card {
+    flex: unset; /* Remove flex sizing */
+  }
+}
+/* --- Pull Quote (Editorial Section) --- */
+.pull-quote-section {
+  background-color: #FFFFFF;
+  padding: 6rem 0; /* Generous whitespace = Luxury */
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* The Giant Gold Watermark */
+.quote-watermark {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Playfair Display", serif;
+  font-size: 8rem;
+  line-height: 1;
+  color: rgba(212, 175, 55, 0.15); /* Very faint Gold */
+  z-index: -1; /* Sits behind text */
+  pointer-events: none;
+}
+
+/* The Text */
+.editorial-quote {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem; /* Mobile Size */
+  line-height: 1.6;
+  color: #1B365D; /* Deep Navy */
+  margin: 0 0 2.5rem 0;
+  border: none;
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Highlight the key ROI sentence */
+.highlight {
+  background: linear-gradient(120deg, rgba(212, 175, 55, 0.2) 0%, rgba(212, 175, 55, 0) 100%);
+  box-decoration-break: clone;
+  padding: 0 5px;
+  font-weight: 600;
+}
+
+.quote-attribution-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* 1. The Avatar Styling */
+.author-avatar-link {
+  display: block;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid transparent; /* Invisible border by default */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.author-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* The Author */
+.quote-attribution {
+  display: block;
+  font-family: "Lato", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #D4AF37; /* Solid Gold */
+  font-style: normal;
+}
+
+/* 2. Text Details */
+.author-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.author-name {
+  font-family: "Lato", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #1B365D;
+  font-style: normal;
+}
+
+.uni-tag {
+  color: #D4AF37; /* Gold */
+  text-transform: uppercase; /* CHANGED: Makes it stand out as a status */
+  font-weight: 700; /* Bold to match the uppercase style */
+  font-size: 0.75rem; /* Slightly smaller to keep it elegant */
+  letter-spacing: 1px;
+  display: block; /* Stacks on mobile */
+  margin-top: 4px;
+}
+
+/* 3. The 'Watch his story' Link */
+.watch-story-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #888; /* Muted Grey */
+  font-weight: 500;
+  margin-top: 4px;
+  transition: color 0.2s ease;
+}
+
+.youtube-icon {
+  color: #FF0000; /* YouTube Red */
+  font-size: 1rem;
+}
+
+/* Hover State for Text Link */
+.watch-story-link:hover {
+  color: #1B365D; /* Navy on hover */
+}
+
+/* Desktop Typography */
+@media (min-width: 768px) {
+  .editorial-quote {
+    font-size: 2.2rem; /* Large, impressive font on desktop */
+    line-height: 1.5;
+  }
+  .quote-attribution-block {
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+    gap: 1.5rem;
+  }
+  .author-details {
+    align-items: flex-start;
+  }
+  .uni-tag {
+    display: inline; /* Inline on desktop */
+    margin-left: 8px; /* Little more space from the name */
+    margin-top: 0;
+  }
+  .quote-watermark {
+    font-size: 10rem;
+    top: -50px;
+  }
+}
+/* --- FAQ Section --- */
+.faq-section {
+  padding: 4rem 0;
+  background-color: #F9F7F2; /* Cream background to let white bars pop */
+}
+
+.faq-container {
+  max-width: 800px; /* Narrower container for readability */
+  margin: 0 auto;
+}
+
+.faq-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  /* Hover effect for the whole bar */
+}
+.faq-item:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  border-color: rgba(27, 54, 93, 0.1);
+}
+
+/* The Clickable Header */
+summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  cursor: pointer;
+  list-style: none; /* Hides default marker */
+  font-weight: bold;
+  color: #1B365D;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+}
+
+/* Hide default marker in Webkit */
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* The Chevron Icon */
+.faq-icon {
+  color: #D4AF37; /* Gold Icon */
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+/* Rotate Icon when Open */
+details[open] .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* The Answer Text */
+.faq-answer {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  color: #555;
+  line-height: 1.6;
+  font-size: 1rem;
+  border-top: 1px solid transparent;
+  /* Optional: Mild animation for appearing text */
+  animation: fadeDown 0.3s ease-in-out;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
