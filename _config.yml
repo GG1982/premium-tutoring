@@ -1,6 +1,7 @@
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "" # the subpath of your site, e.g. /blog
-title: "" # the name of your site, e.g. ACME Corp.
+title: "GG Maths"
+description: "Expert online maths tutoring for ages 7–18. Boost confidence and exam results with tailored 1:1 support and proven strategies."
+url: "https://gg1982.github.io"
+baseurl: "/premium-tutoring" # Only needed if you're using a subfolder
 
 # Company Details
 google_reviews_url: "https://www.google.com/search?q=ggmaths&oq=ggmaths&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgoIAhAAGIAEGKIEMgoIAxAAGIAEGKIEMgoIBBAAGKIEGIkFMgYIBRBFGDwyBggGEEUYPTIGCAcQRRg80gEIMzEwMGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x48761923e87f01e1:0xb59e62c483b997c,1,,,,"
