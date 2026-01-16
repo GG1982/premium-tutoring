@@ -21,22 +21,22 @@
         <div class="service-card {{ accent_class }}">
           
           <div class="card-content">
-          <div class="card-header">
-            <div class="icon-circle">
-              <i class="bi {{ service.icon_name }}"></i>
+            <div class="card-header">
+              <div class="icon-circle">
+                <i class="bi {{ service.icon_name }}"></i>
+              </div>
+              <h3 class="service-title">
+                <a href="{{ service.page_url }}" class="stretched-link">
+                  {{ service.title }}
+                </a>
+              </h3>
             </div>
-            <h3 class="service-title">
-              <a href="{{ service.page_url }}" style="text-decoration: none; color: inherit;">
-                {{ service.title }}
-              </a>
-            </h3>
-          </div>
             
             <p class="service-desc">{{ service.description }}</p>
 
             <div class="card-features">
               <div class="feature-row">
-                <span class="check-icon">✓</span><strong>60-min</strong>1-to-1 Expert Tuition
+                <span class="check-icon">✓</span> <strong>60-min</strong>&nbsp;1-to-1 Expert Tuition
               </div>
               <div class="feature-row">
                 <span class="check-icon">✓</span> Weekly Parent Feedback
@@ -121,6 +121,22 @@
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
   }
 
+  .stretched-link {
+    text-decoration: none; 
+    color: inherit;
+  }
+
+  /* This pseudo-element stretches the link to cover the parent .service-card */
+  .stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1; /* Low priority layer */
+    content: "";
+  }
+
   .card-content { padding: 2rem 2rem 1rem 2rem; }
 
   .icon-circle {
@@ -203,6 +219,9 @@
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.2s ease;
+
+    position: relative; 
+    z-index: 2;
   }
 
   /* --- Color Logic Updates --- */

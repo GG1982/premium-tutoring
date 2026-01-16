@@ -2076,5 +2076,428 @@ details[open] .faq-icon {
     transform: translateY(0);
   }
 }
+/* --- About / Profile Page --- */
+/* 1. Split Hero */
+.about-hero {
+  padding: 6rem 0;
+  background-color: #FFFFFF;
+}
+
+.about-hero-grid {
+  display: flex;
+  flex-direction: column-reverse; /* Image on top on mobile */
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-text-col {
+  flex: 1;
+  text-align: center;
+}
+
+.eyebrow-text-navy {
+  color: #1B365D;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.about-hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 3rem;
+  color: #1B365D;
+  margin-bottom: 1rem;
+}
+
+.about-lead {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.about-image-col {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image-frame {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1/1.1; /* Slightly taller than square */
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 20px 20px 0px rgba(212, 175, 55, 0.2); /* Gold Offset Shadow */
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 2. Stats Strip */
+.stats-strip {
+  background-color: #1B365D;
+  padding: 3rem 0;
+  color: white;
+}
+
+.stats-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  color: #D4AF37; /* Gold */
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 3. Biography */
+.bio-section {
+  padding: 5rem 0;
+  background-color: white;
+}
+
+.bio-container {
+  max-width: 700px; /* Narrow for readability */
+  margin: 0 auto;
+}
+
+.bio-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+.bio-content strong {
+  color: #1B365D;
+}
+
+/* 4. Credentials */
+.credentials-section {
+  background-color: #F9F7F2; /* Cream */
+  padding: 5rem 0;
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.credential-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.credential-card:hover {
+  transform: translateY(-5px);
+}
+
+.credential-icon {
+  font-size: 2.5rem;
+  color: #D4AF37;
+  margin-bottom: 1rem;
+}
+
+.credential-text h3 {
+  font-size: 1.2rem;
+  color: #1B365D;
+  margin-bottom: 0.5rem;
+}
+
+.credential-text p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Desktop Media Query */
+@media (min-width: 768px) {
+  .about-hero-grid {
+    flex-direction: row;
+    text-align: left;
+  }
+  .about-text-col {
+    text-align: left;
+  }
+  .credentials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* --- Journey Timeline --- */
+.timeline-section {
+  padding: 5rem 0;
+  background-color: white;
+  overflow: hidden; /* For line positioning */
+}
+
+.timeline-wrapper {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* The connecting line */
+.timeline-line {
+  position: absolute;
+  top: 45px; /* Aligns with dots */
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #E0E0E0;
+  z-index: 0;
+}
+
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Mobile: 2x2 grid */
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-item {
+  text-align: center;
+  background: white; /* Covers the line behind text if needed */
+  padding: 0 10px;
+}
+
+.timeline-year {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 1.5rem;
+  color: #D4AF37; /* Gold */
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #1B365D; /* Navy Dot */
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  border: 2px solid white; /* Separation from line */
+  box-shadow: 0 0 0 2px #1B365D;
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  color: #1B365D;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-desc {
+  font-size: 1rem;
+  color: #777;
+  line-height: 1.4;
+}
+
+/* --- Philosophy Section --- */
+.philosophy-section {
+  background-color: #F9F7F2; /* Cream */
+  padding: 6rem 0;
+}
+
+.philosophy-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  align-items: center;
+}
+
+.philosophy-text {
+  flex: 1;
+  text-align: center;
+}
+
+.philosophy-quote {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  color: #1B365D;
+  border: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  line-height: 1.4;
+}
+
+.philosophy-body {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.7;
+}
+
+.philosophy-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* The Polaroid Effect */
+.polaroid-frame {
+  background: white;
+  padding: 15px 15px 40px 15px; /* Big bottom padding like a polaroid */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transform: rotate(2deg); /* Candid tilt */
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.polaroid-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.polaroid-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: sepia(10%); /* Subtle warmth */
+}
+
+/* Desktop Media Query */
+@media (min-width: 768px) {
+  /* Timeline becomes 4 columns */
+  .timeline-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  /* Philosophy becomes side-by-side */
+  .philosophy-grid {
+    flex-direction: row;
+    text-align: left;
+    gap: 5rem;
+  }
+  .philosophy-text {
+    text-align: left;
+  }
+}
+/* --- YouTube Showcase Section --- */
+.youtube-section {
+  background-color: #1B365D; /* Dark Navy */
+  color: #FFFFFF;
+  padding: 6rem 0;
+}
+
+.youtube-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+/* Text Column */
+.youtube-text-col {
+  text-align: center;
+  flex: 1;
+}
+
+.eyebrow-text-gold {
+  color: #D4AF37;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.youtube-text-col h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #FFFFFF;
+}
+
+.youtube-text-col p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* YouTube Button */
+.btn-youtube {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #FF0000; /* YouTube Red */
+  color: #FFFFFF;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-youtube:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 0, 0, 0.3);
+  background-color: #E60000;
+}
+
+/* Video Column */
+.youtube-video-col {
+  width: 100%;
+  flex: 1;
+}
+
+.video-frame-gold {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Heavy shadow for depth */
+  border: 2px solid rgba(212, 175, 55, 0.3); /* Subtle Gold Border */
+}
+
+.video-frame-gold iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Desktop Media Query */
+@media (min-width: 768px) {
+  .youtube-grid {
+    flex-direction: row; /* Side-by-side */
+    gap: 5rem;
+    text-align: left;
+  }
+  .youtube-text-col {
+    text-align: left;
+  }
+}
 
 /*# sourceMappingURL=styles.css.map */

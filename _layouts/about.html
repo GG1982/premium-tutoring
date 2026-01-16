@@ -1,0 +1,140 @@
+---
+layout: default
+---
+
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero-grid">
+      
+      <div class="about-text-col">
+        <span class="eyebrow-text-navy">The Tutor</span>
+        <h1>{{ page.title }}</h1>
+        <p class="about-lead">{{ page.subtitle }}</p>
+        <a href="#contact" class="btn-gold">Book a Consultation</a>
+      </div>
+
+      <div class="about-image-col">
+        <div class="image-frame">
+          <img src="{{ page.image }}" alt="{{ page.title }}" class="profile-img">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="stats-strip">
+  <div class="container">
+    <div class="stats-flex">
+      {% for stat in page.stats %}
+        <div class="stat-item">
+          <span class="stat-value">{{ stat.value }}</span>
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="bio-section">
+  <div class="container bio-container">
+    <div class="bio-content">
+      {{ page.biography | markdownify }}
+    </div>
+  </div>
+</section>
+
+<section class="credentials-section">
+  <div class="container">
+    <div class="section-header-center">
+      <h2>Qualifications & Safety</h2>
+    </div>
+    
+    <div class="credentials-grid">
+      {% for item in page.credentials %}
+        <div class="credential-card">
+          <div class="credential-icon">
+            <i class="bi {{ item.icon }}"></i>
+          </div>
+          <div class="credential-text">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.desc }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="timeline-section">
+  <div class="container">
+    <div class="timeline-wrapper">
+      <div class="timeline-line"></div>
+      
+      <div class="timeline-grid">
+        {% for item in page.timeline %}
+          <div class="timeline-item">
+            <span class="timeline-year">{{ item.year }}</span>
+            <div class="timeline-dot"></div>
+            <h4 class="timeline-title">{{ item.title }}</h4>
+            <p class="timeline-desc">{{ item.desc }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="philosophy-section">
+  <div class="container">
+    <div class="philosophy-grid">
+      
+      <div class="philosophy-text">
+        <span class="eyebrow-text-navy">The Philosophy</span>
+        <blockquote class="philosophy-quote">
+          "{{ page.philosophy.quote }}"
+        </blockquote>
+        <p class="philosophy-body">{{ page.philosophy.text }}</p>
+      </div>
+
+      <div class="philosophy-image">
+        <div class="polaroid-frame">
+          <img src="{{ page.philosophy.action_image }}" alt="Teaching Notes">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="youtube-section">
+  <div class="container">
+    <div class="youtube-grid">
+      
+      <div class="youtube-text-col">
+        <span class="eyebrow-text-gold">Try Before You Buy</span>
+        <h2>{{ page.youtube_showcase.heading }}</h2>
+        <p>{{ page.youtube_showcase.text }}</p>
+        
+        <a href="{{ page.youtube_showcase.channel_url }}" target="_blank" class="btn-youtube">
+          <i class="bi bi-youtube"></i> Visit My Channel
+        </a>
+      </div>
+
+      <div class="youtube-video-col">
+        <div class="video-frame-gold">
+          <iframe 
+            src="https://www.youtube.com/embed/{{ page.youtube_showcase.video_id }}?rel=0&modestbranding=1" 
+            title="Maths Tutorial" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% include contact.html %}
