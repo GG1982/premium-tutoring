@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
+  padding-top: 2.5rem;
 }
 
 /* --- Left Column: Info & Timeline --- */
@@ -861,7 +862,7 @@ details[open] .faq-icon {
 /* 1. Split Hero */
 .about-hero {
   padding: 6rem 0;
-  background-color: #FFFFFF;
+  background-color: #F9F7F2;
 }
 
 .about-hero-grid {
@@ -1141,32 +1142,151 @@ details[open] .faq-icon {
   line-height: 1.7;
 }
 
-.philosophy-image {
+// .philosophy-image {
+//   flex: 1;
+//   display: flex;
+//   justify-content: center;
+// }
+
+// /* The Polaroid Effect */
+// .polaroid-frame {
+//   background: white;
+//   padding: 15px 15px 40px 15px; /* Big bottom padding like a polaroid */
+//   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+//   transform: rotate(2deg); /* Candid tilt */
+//   transition: transform 0.3s ease;
+//   width: 100%;
+//   max-width: 400px;
+// }
+
+// .polaroid-frame:hover {
+//   transform: rotate(0deg) scale(1.02);
+// }
+
+// .polaroid-frame img {
+//   width: 100%;
+//   height: auto;
+//   display: block;
+//   filter: sepia(10%); /* Subtle warmth */
+// }
+
+
+/* --- Philosophy Laptop Mockup --- */
+
+.philosophy-video-col {
   flex: 1;
   display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers laptop horizontally */
   justify-content: center;
-}
-
-/* The Polaroid Effect */
-.polaroid-frame {
-  background: white;
-  padding: 15px 15px 40px 15px; /* Big bottom padding like a polaroid */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  transform: rotate(2deg); /* Candid tilt */
-  transition: transform 0.3s ease;
   width: 100%;
-  max-width: 400px;
 }
 
-.polaroid-frame:hover {
-  transform: rotate(0deg) scale(1.02);
-}
-
-.polaroid-frame img {
+/* 1. The Screen Bezel (Top Part) */
+.laptop-mockup {
+  background-color: #1a1a1a; /* Dark Grey Bezel */
+  padding: 12px 12px 0 12px; /* Bezel thickness */
+  border-radius: 16px 16px 0 0; /* Rounded top corners */
   width: 100%;
-  height: auto;
-  display: block;
-  filter: sepia(10%); /* Subtle warmth */
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  margin: 0 auto; /* Force centering */
+}
+
+/* Webcam Dot */
+.laptop-camera {
+  width: 6px;
+  height: 6px;
+  background-color: #333;
+  border-radius: 50%;
+  position: absolute;
+  top: 6px; 
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 2. The Screen Content */
+.laptop-screen {
+  background-color: #000;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Enforce standard video shape */
+  overflow: hidden;
+  position: relative;
+  /* Fix for black bars: ensure iframe fills space */
+  display: flex; 
+}
+
+.laptop-screen iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* 3. The Laptop Base (Bottom Part) */
+.laptop-base {
+  width: 110%; /* Wider than screen */
+  max-width: 550px; /* Constraints width relative to screen */
+  height: 18px;
+  background: linear-gradient(to bottom, #d1d5db 0%, #b0b3b8 100%); /* Metal gradient */
+  border-radius: 0 0 12px 12px;
+  position: relative;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Shadow under laptop */
+  
+  /* The "Notch" for opening the lid */
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 5px;
+    background-color: #9ca3af; /* Darker grey notch */
+    border-radius: 0 0 6px 6px;
+  }
+}
+
+/* 4. Caption */
+.philosophy-video-col .video-caption {
+  font-size: 0.95rem;
+  color: #555; /* Dark Grey (Readable on Cream) */
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.text-danger {
+  color: #dc3545;
+  font-size: 0.8rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.4; }
+  100% { opacity: 1; }
+}
+
+/* Desktop Adjustment */
+@media (min-width: 768px) {
+  .philosophy-video-col {
+    padding-left: 3rem;
+    align-items: flex-start; /* Align laptop left to match text column */
+  }
+  
+  .laptop-mockup {
+    margin: 0; /* Reset margin to align left */
+  }
+  
+  /* On desktop, the base should align with the screen left edge roughly */
+  .laptop-base {
+    width: 110%;
+    margin-left: -5%; /* Pull back to center under screen */
+  }
 }
 
 /* Desktop Media Query */
@@ -1286,5 +1406,159 @@ details[open] .faq-icon {
   
   .youtube-text-col {
     text-align: left;
+  }
+}
+
+
+/* --- Reviews Page Styling --- */
+
+/* 1. Light Hero */
+.reviews-hero {
+  background-color: #F9F7F2; /* Light Cream */
+  padding: 140px 0 60px 0; /* High top padding to account for Fixed Navy Header */
+  text-align: center;
+}
+
+.reviews-header-content h1 {
+  color: #1B365D; /* Dark Navy Text */
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.reviews-header-content .lead {
+  color: #1B365D;
+  font-size: 1.25rem;
+  opacity: 0.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Reviews Page Styling (Pale Gold Update) --- */
+
+/* 2. Video Grid Section */
+.reviews-grid-section {
+  padding: 5rem 0;
+  
+  /* The requested Pale Gold/Cream Gradient */
+  background: linear-gradient(to bottom, #FFFDF5, #FFF8E1); 
+  border-top: 1px solid #EAD8B1; /* Subtle gold separator */
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* 3. The Video Card */
+.video-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Thumbnail Area */
+.video-thumbnail {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(27, 54, 93, 0.15); /* Navy shadow looks cleaner on cream */
+  transition: transform 0.3s ease;
+  background-color: #1B365D; /* Fallback color */
+}
+
+.video-thumbnail:hover {
+  transform: translateY(-5px);
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay & Play Button */
+.video-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(27, 54, 93, 0.3); /* Navy Tint */
+  transition: background 0.3s ease;
+}
+
+.video-thumbnail:hover .video-overlay {
+  background: rgba(27, 54, 93, 0.1);
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.play-button i {
+  color: #D4AF37; /* Gold Icon */
+  font-size: 2rem;
+  margin-left: 4px;
+}
+
+/* Grade Badge */
+.grade-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #D4AF37; /* Gold */
+  color: #1B365D; /* Navy Text */
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Text Content - UPDATED FOR LIGHT BACKGROUND */
+.video-content {
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.video-quote {
+  font-style: italic;
+  color: #1B365D; /* Changed to Navy so it pops on Cream */
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  opacity: 1;
+}
+
+.video-author {
+  color: #D4AF37; /* Gold */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+
+/* Responsive Grid */
+@media (min-width: 768px) {
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .video-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

@@ -96,111 +96,286 @@
 </script>
   
   <main>
-    
-<section class="contact-section">
+    <section class="about-hero">
   <div class="container">
-    <div class="contact-wrapper">
+    <div class="about-hero-grid">
       
-      <div class="contact-info">
-        <h1>Let’s map out your child’s path to success.</h1>
-        <p class="contact-subhead">Fill in the form to request current availability. I usually reply personally within 24 hours.</p>
-        
-        <div class="process-timeline">
-          <h3>What Happens Next?</h3>
-          <div class="step-item">
-            <span class="step-num">1</span>
-            <p>We review your requirements and current academic level.</p>
-          </div>
-          <div class="step-item">
-            <span class="step-num">2</span>
-            <p>We book a free 15-min diagnostic call to set goals.</p>
-          </div>
-          <div class="step-item">
-            <span class="step-num">3</span>
-            <p>We match the perfect tutor and grant Portal access.</p>
-          </div>
-        </div>
-
-        <div class="mini-testimonial">
-          <p>"The best investment we made for his education. The difference in confidence was immediate."</p>
-          <span class="author">— Sarah, Parent of Year 11 Student</span>
-        </div>
+      <div class="about-text-col">
+        <span class="eyebrow-text-navy">The Results</span>
+        <h1>Student Success Stories</h1>
+        <p class="about-lead">From Grade 4s to A*s. Real results from real students.</p>
       </div>
 
-      <div class="contact-form-card">
-        <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
-          
-          <div class="form-group">
-            <label for="parentName">Parent Name</label>
-            <input type="text" id="parentName" name="name" required placeholder="John Smith">
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required placeholder="john@example.com">
-          </div>
-
-          <div class="form-row">
-            <!-- <div class="form-group">
-              <label for="studentYear">Student's Year Group</label>
-              <select id="studentYear" name="year">
-                <option value="" disabled selected>Select Year</option>
-                <option value="Year 4-6">Year 4 - 6 (KS2)</option>
-                <option value="Year 7-9">Year 7 - 9 (KS3)</option>
-                <option value="Year 10">Year 10</option>
-                <option value="Year 11">Year 11 (GCSE)</option>
-                <option value="Year 12">Year 12</option>
-                <option value="Year 13">Year 13 (A-Level)</option>
-                <option value="Uni">University</option>
-              </select>
-            </div> -->
-
-            <div class="form-group">
-              <label for="level-select">Subject Level</label>
-              <select id="level-select" name="level">
-                <option value="General" selected>General Enquiry</option>
-                <option value="Key Stage 2 (KS2)">Key Stage 2 (KS2)</option>
-                <option value="Key Stage 3 (KS3)">Key Stage 3 (KS3)</option>
-                <option value="GCSE Maths">GCSE Maths</option>
-                <option value="A-Level Maths">A-Level Maths</option>
-                <option value="University Entrance">University Entrance</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="challenge">Biggest Challenge?</label>
-            <textarea id="challenge" name="message" rows="4" placeholder="e.g. Confidence, Exam Technique, Specific Topics..."></textarea>
-          </div>
-
-          <button type="submit" class="btn-gold full-width">Request Availability</button>
-        </form>
+      <div class="about-image-col">
+        <div class="image-frame">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" alt="Student Success" class="profile-img">
+        </div>
       </div>
 
     </div>
   </div>
 </section>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // 1. Get the URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    const levelParam = urlParams.get('level');
-
-    // 2. If a level exists, select it in the dropdown
-    if (levelParam) {
-      const selectBox = document.getElementById('level-select');
+<section class="reviews-grid-section">
+  <div class="container">
+    <div class="video-grid">
       
-      // Iterate options to find a match (handles URL decoding automatically)
-      for (let i = 0; i < selectBox.options.length; i++) {
-        if (selectBox.options[i].value === levelParam) {
-          selectBox.selectedIndex = i;
-          break;
-        }
-      }
+      
+      <div class="video-card">
+        <a href="#" class="video-thumbnail" target="_blank">
+          <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Adam">
+          
+          <div class="video-overlay"></div>
+          
+          <div class="play-button">
+            <i class="bi bi-play-fill"></i>
+          </div>
+
+          <div class="grade-badge">
+            Grade 4 → A*
+          </div>
+        </a>
+
+        <div class="video-content">
+          <p class="video-quote">"I started lower than my friends, but I kept climbing."</p>
+          <p class="video-author">Adam</p>
+        </div>
+      </div>
+      
+      <div class="video-card">
+        <a href="#" class="video-thumbnail" target="_blank">
+          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=600&q=80" alt="Chris">
+          
+          <div class="video-overlay"></div>
+          
+          <div class="play-button">
+            <i class="bi bi-play-fill"></i>
+          </div>
+
+          <div class="grade-badge">
+            Accepted to LSE
+          </div>
+        </a>
+
+        <div class="video-content">
+          <p class="video-quote">"It's your career and your entire future you are investing in."</p>
+          <p class="video-author">Chris</p>
+        </div>
+      </div>
+      
+      <div class="video-card">
+        <a href="#" class="video-thumbnail" target="_blank">
+          <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=600&q=80" alt="Sarah">
+          
+          <div class="video-overlay"></div>
+          
+          <div class="play-button">
+            <i class="bi bi-play-fill"></i>
+          </div>
+
+          <div class="grade-badge">
+            Year 6 SATs
+          </div>
+        </a>
+
+        <div class="video-content">
+          <p class="video-quote">"He went from 'Working Towards' to 'Greater Depth' in 6 months."</p>
+          <p class="video-author">Sarah</p>
+        </div>
+      </div>
+      
+      <div class="video-card">
+        <a href="#" class="video-thumbnail" target="_blank">
+          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca28497b1?auto=format&fit=crop&w=600&q=80" alt="James">
+          
+          <div class="video-overlay"></div>
+          
+          <div class="play-button">
+            <i class="bi bi-play-fill"></i>
+          </div>
+
+          <div class="grade-badge">
+            Year 10 Confidence
+          </div>
+        </a>
+
+        <div class="video-content">
+          <p class="video-quote">"I stopped dreading maths lessons. That was the biggest win."</p>
+          <p class="video-author">James</p>
+        </div>
+      </div>
+      
+      <div class="video-card">
+        <a href="#" class="video-thumbnail" target="_blank">
+          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca28497b1?auto=format&fit=crop&w=600&q=80" alt="James">
+          
+          <div class="video-overlay"></div>
+          
+          <div class="play-button">
+            <i class="bi bi-play-fill"></i>
+          </div>
+
+          <div class="grade-badge">
+            Year 10 Confidence
+          </div>
+        </a>
+
+        <div class="video-content">
+          <p class="video-quote">"I stopped dreading maths lessons. That was the biggest win."</p>
+          <p class="video-author">James</p>
+        </div>
+      </div>
+      
+      <div class="video-card">
+        <a href="#" class="video-thumbnail" target="_blank">
+          <img src="https://images.unsplash.com/photo-1427504494785-3a9ca28497b1?auto=format&fit=crop&w=600&q=80" alt="James">
+          
+          <div class="video-overlay"></div>
+          
+          <div class="play-button">
+            <i class="bi bi-play-fill"></i>
+          </div>
+
+          <div class="grade-badge">
+            Year 10 Confidence
+          </div>
+        </a>
+
+        <div class="video-content">
+          <p class="video-quote">"I stopped dreading maths lessons. That was the biggest win."</p>
+          <p class="video-author">James</p>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-strip text-on-dark">
+  <div class="pattern-overlay"></div>
+  
+  <div class="container">
+    <div class="cta-flex-wrapper">
+      
+      <div class="cta-text">
+        <h2 class="cta-headline">Unsure where your child stands?</h2>
+        <p class="cta-sub">Book a 15-minute diagnostic call. We will assess their current level and recommend the right roadmap.</p>
+      </div>
+
+      <div class="cta-action">
+        <a href="/premium-tutoring/contact" class="btn-premium">
+          Book Free Diagnostic <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+
+
+
+
+.cta-strip {
+    background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%); /* Hero Gradient */
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Refined 'Graph Paper' Pattern */
+  .pattern-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .cta-flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2.5rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #FFFFFF;
+  }
+
+  .cta-sub {
+    font-size: 1.15rem;
+    margin: 0;
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* --- The Premium Button Upgrade --- */
+  .btn-premium {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #D4AF37; /* Solid Gold */
+    color: #1B365D; /* Navy Text for Contrast */
+    padding: 16px 32px;
+    border-radius: 50px; /* Pill Shape */
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 2px solid #D4AF37;
+    /* Soft Gold Shadow */
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); 
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-3px); /* Lifts up slightly */
+    background-color: #FFFFFF; /* Turns White */
+    color: #1B365D; /* Navy Text */
+    border-color: #FFFFFF;
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2); /* White Glow */
+  }
+
+  .btn-premium i {
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-premium:hover i {
+    transform: translateX(4px); /* Arrow moves right */
+  }
+
+  /* Desktop Layout */
+  @media (min-width: 992px) {
+    .cta-flex-wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+      align-items: center;
     }
-  });
-</script>
+    .cta-text { width: 65%; }
+    .cta-action { width: 35%; text-align: right; }
+    
+    .cta-sub {
+      margin-left: 0; /* Align left */
+    }
+  }
+
+
+
+</style>
+
   </main>
   
   <footer class="site-footer text-on-dark">

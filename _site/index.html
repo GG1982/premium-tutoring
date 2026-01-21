@@ -11,33 +11,89 @@
   
   <link rel="stylesheet" href="/premium-tutoring/assets/styles.css">
 </head>
-<body>
+<body class="home">
   
-  <header class="site-header">
+  
+  <header id="main-header" class="site-header header-transparent">
+
   <div class="container">
     <nav class="navbar">
-      <div class="logo">Maths Tuition</div>
       
-      <div class="mobile-menu-toggle">
-        <span>&#9776;</span> </div>
+      <a href="/premium-tutoring/" class="logo-text">
+        Maths Tuition
+      </a>
 
-      <div class="desktop-links">
-        <a href="#contact" class="btn-primary" style="padding: 0.5rem 1.5rem; font-size: 1rem;">Book Now</a>
+      <ul class="nav-links desktop-only">
+        
+        <li class="dropdown-item">
+          <a href="#" class="nav-link">Tuition Levels <i class="bi bi-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="/premium-tutoring/services/ks2">KS2 (Primary)</a></li>
+            <li><a href="/premium-tutoring/services/ks3">KS3 (Y7-9)</a></li>
+            <li><a href="/premium-tutoring/services/gcse">GCSE Maths</a></li>
+            <li><a href="/premium-tutoring/services/alevel">A-Level Maths</a></li>
+            <li><a href="/premium-tutoring/services/uni">Uni Entrance (STEP/MAT)</a></li>
+          </ul>
+        </li>
+
+        <li><a href="/premium-tutoring/about" class="nav-link">About</a></li>
+        <li><a href="/premium-tutoring/reviews" class="nav-link">Reviews</a></li>
+      </ul>
+
+      <div class="nav-actions desktop-only">
+        <a href="https://your-portal-url.com" class="login-link">Portal Login</a>
+        <a href="/premium-tutoring/contact" class="btn-nav-cta">Enquire Now</a>
       </div>
+
+      <button class="mobile-toggle" aria-label="Toggle Navigation">
+        <i class="bi bi-list"></i>
+      </button>
+
     </nav>
   </div>
+
+  <div class="mobile-overlay">
+    <button class="mobile-close"><i class="bi bi-x-lg"></i></button>
+    <ul class="mobile-links">
+      <li><a href="/premium-tutoring/">Home</a></li>
+      <li><a href="/premium-tutoring/services/ks2">KS2 (Primary)</a></li>
+      <li><a href="/premium-tutoring/services/ks3">KS3 (Y7-9)</a></li>
+      <li><a href="/premium-tutoring/services/gcse">GCSE Maths</a></li>
+      <li><a href="/premium-tutoring/services/alevel">A-Level Maths</a></li>
+      <li><a href="/premium-tutoring/services/uni">Uni Entrance</a></li>
+      <li><a href="/premium-tutoring/about">About</a></li>
+      <li><a href="/premium-tutoring/contact">Contact Me</a></li>
+      <li><a href="https://your-portal-url.com" class="highlight-gold">Student Portal</a></li>
+    </ul>
+  </div>
+
 </header>
 
-<style>
-  /* Basic Header Styling for Context */
-  .navbar { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
-  .logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #1B365D; font-weight: bold; }
-  .desktop-links { display: none; } /* Hidden on mobile */
-  @media(min-width: 768px) {
-    .desktop-links { display: block; }
-    .mobile-menu-toggle { display: none; }
+<script>
+  // 1. Handle Scroll Effect
+  const header = document.getElementById('main-header');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+
+  // 2. Handle Mobile Menu
+  const toggleBtn = document.querySelector('.mobile-toggle');
+  const closeBtn = document.querySelector('.mobile-close');
+  const overlay = document.querySelector('.mobile-overlay');
+
+  function toggleMenu() {
+    overlay.classList.toggle('active');
+    document.body.classList.toggle('no-scroll'); // Prevent background scrolling
   }
-</style>
+
+  toggleBtn.addEventListener('click', toggleMenu);
+  closeBtn.addEventListener('click', toggleMenu);
+</script>
   
   <main>
     <section class="hero-premium">
@@ -853,7 +909,9 @@
       </div>
 
       <div class="cta-action">
-        <a href="#contact" class="btn-gold">Book Free Diagnostic</a>
+        <a href="/premium-tutoring/contact" class="btn-premium">
+          Book Free Diagnostic <i class="bi bi-arrow-right"></i>
+        </a>
       </div>
 
     </div>
@@ -861,14 +919,18 @@
 </section>
 
 <style>
-  .cta-strip {
+
+
+
+
+.cta-strip {
     background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%); /* Hero Gradient */
     padding: 5rem 0;
     position: relative;
     overflow: hidden;
   }
 
-  /* Custom Pattern Overlay for Dark Mode */
+  /* Refined 'Graph Paper' Pattern */
   .pattern-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -880,36 +942,83 @@
 
   .cta-flex-wrapper {
     display: flex;
-    flex-direction: column; /* Mobile Default */
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 2rem;
+    gap: 2.5rem;
     position: relative;
     z-index: 2;
   }
 
   .cta-headline {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: #FFFFFF;
   }
 
   .cta-sub {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin: 0;
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* --- The Premium Button Upgrade --- */
+  .btn-premium {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #D4AF37; /* Solid Gold */
+    color: #1B365D; /* Navy Text for Contrast */
+    padding: 16px 32px;
+    border-radius: 50px; /* Pill Shape */
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 2px solid #D4AF37;
+    /* Soft Gold Shadow */
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); 
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-3px); /* Lifts up slightly */
+    background-color: #FFFFFF; /* Turns White */
+    color: #1B365D; /* Navy Text */
+    border-color: #FFFFFF;
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2); /* White Glow */
+  }
+
+  .btn-premium i {
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-premium:hover i {
+    transform: translateX(4px); /* Arrow moves right */
   }
 
   /* Desktop Layout */
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .cta-flex-wrapper {
-      flex-direction: row; /* Switch to Row */
+      flex-direction: row;
       justify-content: space-between;
       text-align: left;
+      align-items: center;
     }
-    .cta-text { width: 70%; }
-    .cta-action { width: 30%; text-align: right; }
+    .cta-text { width: 65%; }
+    .cta-action { width: 35%; text-align: right; }
+    
+    .cta-sub {
+      margin-left: 0; /* Align left */
+    }
   }
+
+
+
 </style>
 
 <div style="height: 50px; overflow: hidden; background-color: #F9F7F2;">
@@ -2325,14 +2434,14 @@
           
         </ul>
       </div>
-
+ 
       <div class="nav-col">
         <h4 class="footer-heading">Company</h4>
         <ul class="footer-links">
-          <li><a href="/about">About Giuliano</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/privacy">Privacy Policy</a></li>
-          <li><a href="https://www.google.com/search?q=ggmaths&oq=ggmaths&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgoIAhAAGIAEGKIEMgoIAxAAGIAEGKIEMgoIBBAAGKIEGIkFMgYIBRBFGDwyBggGEEUYPTIGCAcQRRg80gEIMzEwMGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#lrd=0x48761923e87f01e1:0xb59e62c483b997c,1,,,," target="_blank" class="footer-link">Google Reviews</a></li>
+          <li><a href="/premium-tutoring/about">About Giuliano</a></li>
+          <li><a href="/premium-tutoring/contact">Contact</a></li>
+          <li><a href="/premium-tutoring/privacy">Privacy Policy</a></li>
+          <li><a href="/premium-tutoring/reviews" class="footer-link">Reviews</a></li>
           <li><a href="https://portal.yourwebsite.com" class="portal-link">Student Portal Login <i class="bi bi-arrow-right-short"></i></a></li>
         </ul>
       </div>

@@ -10,7 +10,9 @@
       </div>
 
       <div class="cta-action">
-        <a href="#contact" class="btn-gold">Book Free Diagnostic</a>
+        <a href="{{ '/contact' | relative_url }}" class="btn-premium">
+          Book Free Diagnostic <i class="bi bi-arrow-right"></i>
+        </a>
       </div>
 
     </div>
@@ -18,14 +20,18 @@
 </section>
 
 <style>
-  .cta-strip {
+
+
+
+
+.cta-strip {
     background: linear-gradient(135deg, #0F2027 0%, #203A43 50%, #2C5364 100%); /* Hero Gradient */
     padding: 5rem 0;
     position: relative;
     overflow: hidden;
   }
 
-  /* Custom Pattern Overlay for Dark Mode */
+  /* Refined 'Graph Paper' Pattern */
   .pattern-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -37,34 +43,81 @@
 
   .cta-flex-wrapper {
     display: flex;
-    flex-direction: column; /* Mobile Default */
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 2rem;
+    gap: 2.5rem;
     position: relative;
     z-index: 2;
   }
 
   .cta-headline {
     font-family: 'Playfair Display', serif;
-    font-size: 2rem;
+    font-size: 2.2rem;
     margin-top: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: #FFFFFF;
   }
 
   .cta-sub {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin: 0;
+    opacity: 0.9;
+    font-weight: 300;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* --- The Premium Button Upgrade --- */
+  .btn-premium {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #D4AF37; /* Solid Gold */
+    color: #1B365D; /* Navy Text for Contrast */
+    padding: 16px 32px;
+    border-radius: 50px; /* Pill Shape */
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 2px solid #D4AF37;
+    /* Soft Gold Shadow */
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3); 
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-3px); /* Lifts up slightly */
+    background-color: #FFFFFF; /* Turns White */
+    color: #1B365D; /* Navy Text */
+    border-color: #FFFFFF;
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2); /* White Glow */
+  }
+
+  .btn-premium i {
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-premium:hover i {
+    transform: translateX(4px); /* Arrow moves right */
   }
 
   /* Desktop Layout */
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     .cta-flex-wrapper {
-      flex-direction: row; /* Switch to Row */
+      flex-direction: row;
       justify-content: space-between;
       text-align: left;
+      align-items: center;
     }
-    .cta-text { width: 70%; }
-    .cta-action { width: 30%; text-align: right; }
+    .cta-text { width: 65%; }
+    .cta-action { width: 35%; text-align: right; }
+    
+    .cta-sub {
+      margin-left: 0; /* Align left */
+    }
   }
+
+
+
 </style>

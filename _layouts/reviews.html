@@ -1,0 +1,56 @@
+---
+layout: default
+---
+
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero-grid">
+      
+      <div class="about-text-col">
+        <span class="eyebrow-text-navy">The Results</span>
+        <h1>{{ page.title }}</h1>
+        <p class="about-lead">{{ page.subtitle }}</p>
+      </div>
+
+      <div class="about-image-col">
+        <div class="image-frame">
+          <img src="{{ page.hero_image }}" alt="Student Success" class="profile-img">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="reviews-grid-section">
+  <div class="container">
+    <div class="video-grid">
+      
+      {% for review in page.video_reviews %}
+      <div class="video-card">
+        <a href="{{ review.video_url }}" class="video-thumbnail" target="_blank">
+          <img src="{{ review.image }}" alt="{{ review.name }}">
+          
+          <div class="video-overlay"></div>
+          
+          <div class="play-button">
+            <i class="bi bi-play-fill"></i>
+          </div>
+
+          <div class="grade-badge">
+            {{ review.grade }}
+          </div>
+        </a>
+
+        <div class="video-content">
+          <p class="video-quote">"{{ review.quote }}"</p>
+          <p class="video-author">{{ review.name }}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+{% include cta-strip.html %}

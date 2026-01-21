@@ -11,7 +11,7 @@
   
   <link rel="stylesheet" href="{{ '/assets/styles.css' | relative_url }}">
 </head>
-<body>
+<body class="{% if page.url == '/' or page.url == '/index.html' %}home{% endif %}">
   
   {% include header.html %}
   

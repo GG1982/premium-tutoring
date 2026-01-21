@@ -7,7 +7,7 @@ image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.
 stats:
   - label: "Hours Taught"
     value: "6,000+"
-  - label: "YouTube Subscribers" # NEW
+  - label: "YouTube Subscribers"
     value: "4,000+"
   - label: "Success Rate"
     value: "98%"
@@ -28,8 +28,10 @@ credentials:
 
 philosophy:
   quote: "I believe that no student is 'bad at maths'. They just haven't had the method explained in their language yet."
-  text: "My teaching style is Socratic. I don't lecture; I ask questions that guide the student to the answer. This builds the neural pathways they need to solve problems independently in the exam hall."
-  action_image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80"
+  text: "My teaching style is Socratic. I don't lecture; I ask questions that guide the student to the answer. Watch this clip to see how we use the shared whiteboard to solve problems together in real-time."
+  # I've used your previous video ID as a placeholder. Replace with a clip of a live lesson if you have one!
+  demo_video_id: "dQw4w9WgXcQ" 
+  poster_image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80"
 
 timeline:
   - year: "2014"

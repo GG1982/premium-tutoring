@@ -96,11 +96,33 @@ layout: default
         </blockquote>
         <p class="philosophy-body">{{ page.philosophy.text }}</p>
       </div>
-
+<!-- 
       <div class="philosophy-image">
         <div class="polaroid-frame">
           <img src="{{ page.philosophy.action_image }}" alt="Teaching Notes">
         </div>
+      </div> -->
+
+      <div class="philosophy-video-col">
+        
+        <div class="laptop-mockup">
+          <div class="laptop-camera"></div> <div class="laptop-screen">
+            <iframe 
+              src="https://www.youtube.com/embed/{{ page.philosophy.demo_video_id }}?rel=0&modestbranding=1" 
+              title="Live Lesson Demo" 
+              frameborder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+        
+        <div class="laptop-base"></div>
+
+        <p class="video-caption">
+          <i class="bi bi-record-circle-fill text-danger"></i> Actual footage of a live A-Level lesson
+        </p>
+
       </div>
 
     </div>
