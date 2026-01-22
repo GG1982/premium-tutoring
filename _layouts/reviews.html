@@ -24,29 +24,34 @@ layout: default
 
 <section class="reviews-grid-section">
   <div class="container">
-    <div class="video-grid">
+    
+    <div class="stories-grid">
       
       {% for review in page.video_reviews %}
-      <div class="video-card">
-        <a href="{{ review.video_url }}" class="video-thumbnail" target="_blank">
-          <img src="{{ review.image }}" alt="{{ review.name }}">
+      <a href="{{ review.video_url }}" class="story-card" target="_blank" rel="noopener noreferrer">
+        
+        <div class="thumbnail-wrapper">
+          <img src="{{ review.image }}" alt="{{ review.name }}" class="story-thumb">
           
-          <div class="video-overlay"></div>
-          
-          <div class="play-button">
-            <i class="bi bi-play-fill"></i>
-          </div>
-
-          <div class="grade-badge">
+          <div class="result-badge">
             {{ review.grade }}
           </div>
-        </a>
-
-        <div class="video-content">
-          <p class="video-quote">"{{ review.quote }}"</p>
-          <p class="video-author">{{ review.name }}</p>
+          
+          <div class="play-overlay">
+            <div class="story-play-btn">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <div class="story-content">
+          <p class="video-caption">"{{ review.quote }}"</p>
+          <span class="student-name">— {{ review.name }}</span>
+        </div>
+
+      </a>
       {% endfor %}
 
     </div>

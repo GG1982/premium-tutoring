@@ -653,12 +653,12 @@
 }
 
 
-/* --- Video Stories Section --- */
+/* --- Video Stories Section (Homepage Unique) --- */
 
 .video-stories-section {
-  background-color: #1B365D; /* Dark Navy to match Graph */
-  padding: 0 0 5rem 0; /* Padding bottom only, visually connects to section above */
-  border-top: 1px solid rgba(255,255,255,0.1); /* Subtle separator */
+  background-color: #1B365D; /* Dark Navy */
+  padding: 0 0 5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 .video-header {
@@ -667,67 +667,63 @@
   padding-top: 4rem;
 }
 
-/* Grid / Scroll Layout */
-.video-grid {
+/* Renamed to .stories-grid to avoid conflict */
+.stories-grid {
   display: flex;
   gap: 24px;
-  
-  /* Mobile: Horizontal Snap Scroll */
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding-bottom: 20px; /* Space for scrollbar if visible */
-  
-  /* Hide scrollbar */
+  padding-bottom: 20px;
   scrollbar-width: none;
-  &::-webkit-scrollbar { display: none; }
 }
+.stories-grid::-webkit-scrollbar { display: none; }
 
-.video-card {
-  flex: 0 0 85%; /* Mobile: Show 85% of card */
+/* Renamed to .story-card */
+.story-card {
+  flex: 0 0 85%;
   scroll-snap-align: center;
   text-decoration: none;
   display: block;
   transition: transform 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-5px);
-  }
 }
 
-/* Thumbnail Styling */
+.story-card:hover {
+  transform: translateY(-5px);
+}
+
 .thumbnail-wrapper {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 1rem;
-  aspect-ratio: 16 / 9; /* Standard Video Ratio */
+  aspect-ratio: 16 / 9;
   box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-.video-thumb {
+.story-thumb {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
-  opacity: 0.8; /* Slight dim to make text pop */
+  opacity: 0.8;
 }
 
-.video-card:hover .video-thumb {
+.story-card:hover .story-thumb {
   transform: scale(1.05);
   opacity: 0.6;
 }
 
-/* Overlays */
+/* Play Overlay (Flexbox Centering) */
 .play-overlay {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   display: flex;
-  align-items: center;
+  align-items: center; /* Flex centering doesn't need 'translate' */
   justify-content: center;
   z-index: 2;
 }
 
-.play-button {
+.story-play-btn {
   width: 60px;
   height: 60px;
   background-color: rgba(255,255,255,0.2);
@@ -741,17 +737,17 @@
   transition: all 0.3s ease;
 }
 
-.video-card:hover .play-button {
-  background-color: #D4AF37; /* Gold on hover */
+.story-card:hover .story-play-btn {
+  background-color: #D4AF37;
   border-color: #D4AF37;
-  transform: scale(1.1);
+  transform: scale(1.1); /* Safe here because we use Flexbox, not translate */
 }
 
 .result-badge {
   position: absolute;
   top: 15px;
   right: 15px;
-  background-color: #4B7F52; /* Success Green */
+  background-color: #4B7F52;
   color: white;
   font-size: 0.8rem;
   font-weight: bold;
@@ -761,7 +757,6 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-/* Text Content */
 .video-caption {
   color: #fff;
   font-size: 1.1rem;
@@ -771,23 +766,21 @@
 }
 
 .student-name {
-  color: #D4AF37; /* Gold text */
+  color: #D4AF37;
   font-size: 0.9rem;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* Desktop Layout */
 @media (min-width: 768px) {
-  .video-grid {
+  .stories-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Column Grid */
-    overflow-x: visible; /* Disable scroll */
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
   }
-  
-  .video-card {
-    flex: unset; /* Remove flex sizing */
+  .story-card {
+    flex: unset;
   }
 }
 

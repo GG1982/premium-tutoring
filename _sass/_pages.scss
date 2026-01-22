@@ -1434,131 +1434,28 @@ details[open] .faq-icon {
   margin: 0 auto;
 }
 
-/* --- Reviews Page Styling (Pale Gold Update) --- */
+/* --- Reviews Page Adaptation --- */
 
-/* 2. Video Grid Section */
 .reviews-grid-section {
   padding: 5rem 0;
-  
-  /* The requested Pale Gold/Cream Gradient */
+  /* Pale Gold/Cream Gradient */
   background: linear-gradient(to bottom, #FFFDF5, #FFF8E1); 
-  border-top: 1px solid #EAD8B1; /* Subtle gold separator */
+  border-top: 1px solid #EAD8B1;
 }
 
-.video-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
+/* The Layout (Scroll/Grid) is handled automatically by .stories-grid */
 
-/* 3. The Video Card */
-.video-card {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Thumbnail Area */
-.video-thumbnail {
-  position: relative;
-  display: block;
-  aspect-ratio: 16 / 9;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(27, 54, 93, 0.15); /* Navy shadow looks cleaner on cream */
-  transition: transform 0.3s ease;
-  background-color: #1B365D; /* Fallback color */
-}
-
-.video-thumbnail:hover {
-  transform: translateY(-5px);
-}
-
-.video-thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Overlay & Play Button */
-.video-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(27, 54, 93, 0.3); /* Navy Tint */
-  transition: background 0.3s ease;
-}
-
-.video-thumbnail:hover .video-overlay {
-  background: rgba(27, 54, 93, 0.1);
-}
-
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-  transition: all 0.3s ease;
-}
-
-.play-button i {
-  color: #D4AF37; /* Gold Icon */
-  font-size: 2rem;
-  margin-left: 4px;
-}
-
-/* Grade Badge */
-.grade-badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: #D4AF37; /* Gold */
-  color: #1B365D; /* Navy Text */
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
-
-/* Text Content - UPDATED FOR LIGHT BACKGROUND */
-.video-content {
-  padding-top: 1.5rem;
+/* Text Color Overrides */
+/* The homepage sets these to White. We must force Navy/Gold for the Cream background. */
+.reviews-grid-section .video-caption {
+  color: #1B365D !important; /* Navy */
   text-align: center;
+  margin-top: 1rem;
 }
 
-.video-quote {
-  font-style: italic;
-  color: #1B365D; /* Changed to Navy so it pops on Cream */
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  opacity: 1;
-}
-
-.video-author {
-  color: #D4AF37; /* Gold */
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.9rem;
-}
-
-
-/* Responsive Grid */
-@media (min-width: 768px) {
-  .video-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 992px) {
-  .video-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+.reviews-grid-section .student-name {
+  color: #D4AF37 !important; /* Gold */
+  display: block;
+  text-align: center;
+  margin-top: 0.5rem;
 }

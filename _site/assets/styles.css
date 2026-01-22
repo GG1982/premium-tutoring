@@ -1868,133 +1868,30 @@ details[open] .faq-icon {
   margin: 0 auto;
 }
 
-/* --- Reviews Page Styling (Pale Gold Update) --- */
-/* 2. Video Grid Section */
+/* --- Reviews Page Adaptation --- */
 .reviews-grid-section {
   padding: 5rem 0;
-  /* The requested Pale Gold/Cream Gradient */
+  /* Pale Gold/Cream Gradient */
   background: linear-gradient(to bottom, #FFFDF5, #FFF8E1);
-  border-top: 1px solid #EAD8B1; /* Subtle gold separator */
+  border-top: 1px solid #EAD8B1;
 }
 
-.video-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-/* 3. The Video Card */
-.video-card {
-  display: flex;
-  flex-direction: column;
-}
-
-/* Thumbnail Area */
-.video-thumbnail {
-  position: relative;
-  display: block;
-  aspect-ratio: 16/9;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(27, 54, 93, 0.15); /* Navy shadow looks cleaner on cream */
-  transition: transform 0.3s ease;
-  background-color: #1B365D; /* Fallback color */
-}
-
-.video-thumbnail:hover {
-  transform: translateY(-5px);
-}
-
-.video-thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Overlay & Play Button */
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(27, 54, 93, 0.3); /* Navy Tint */
-  transition: background 0.3s ease;
-}
-
-.video-thumbnail:hover .video-overlay {
-  background: rgba(27, 54, 93, 0.1);
-}
-
-.play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-  transition: all 0.3s ease;
-}
-
-.play-button i {
-  color: #D4AF37; /* Gold Icon */
-  font-size: 2rem;
-  margin-left: 4px;
-}
-
-/* Grade Badge */
-.grade-badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: #D4AF37; /* Gold */
-  color: #1B365D; /* Navy Text */
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 0.85rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Text Content - UPDATED FOR LIGHT BACKGROUND */
-.video-content {
-  padding-top: 1.5rem;
+/* The Layout (Scroll/Grid) is handled automatically by .stories-grid */
+/* Text Color Overrides */
+/* The homepage sets these to White. We must force Navy/Gold for the Cream background. */
+.reviews-grid-section .video-caption {
+  color: #1B365D !important; /* Navy */
   text-align: center;
+  margin-top: 1rem;
 }
 
-.video-quote {
-  font-style: italic;
-  color: #1B365D; /* Changed to Navy so it pops on Cream */
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-  opacity: 1;
+.reviews-grid-section .student-name {
+  color: #D4AF37 !important; /* Gold */
+  display: block;
+  text-align: center;
+  margin-top: 0.5rem;
 }
 
-.video-author {
-  color: #D4AF37; /* Gold */
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.9rem;
-}
-
-/* Responsive Grid */
-@media (min-width: 768px) {
-  .video-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (min-width: 992px) {
-  .video-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
 .about-section {
   background-color: #FFFFFF;
   padding: 4rem 0;
@@ -2644,11 +2541,11 @@ details[open] .faq-icon {
     width: 50%;
   }
 }
-/* --- Video Stories Section --- */
+/* --- Video Stories Section (Homepage Unique) --- */
 .video-stories-section {
-  background-color: #1B365D; /* Dark Navy to match Graph */
-  padding: 0 0 5rem 0; /* Padding bottom only, visually connects to section above */
-  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+  background-color: #1B365D; /* Dark Navy */
+  padding: 0 0 5rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .video-header {
@@ -2657,56 +2554,56 @@ details[open] .faq-icon {
   padding-top: 4rem;
 }
 
-/* Grid / Scroll Layout */
-.video-grid {
+/* Renamed to .stories-grid to avoid conflict */
+.stories-grid {
   display: flex;
   gap: 24px;
-  /* Mobile: Horizontal Snap Scroll */
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding-bottom: 20px; /* Space for scrollbar if visible */
-  /* Hide scrollbar */
+  padding-bottom: 20px;
   scrollbar-width: none;
 }
-.video-grid::-webkit-scrollbar {
+
+.stories-grid::-webkit-scrollbar {
   display: none;
 }
 
-.video-card {
-  flex: 0 0 85%; /* Mobile: Show 85% of card */
+/* Renamed to .story-card */
+.story-card {
+  flex: 0 0 85%;
   scroll-snap-align: center;
   text-decoration: none;
   display: block;
   transition: transform 0.3s ease;
 }
-.video-card:hover {
+
+.story-card:hover {
   transform: translateY(-5px);
 }
 
-/* Thumbnail Styling */
 .thumbnail-wrapper {
   position: relative;
   border-radius: 16px;
   overflow: hidden;
   margin-bottom: 1rem;
-  aspect-ratio: 16/9; /* Standard Video Ratio */
+  aspect-ratio: 16/9;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.video-thumb {
+.story-thumb {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
-  opacity: 0.8; /* Slight dim to make text pop */
+  opacity: 0.8;
 }
 
-.video-card:hover .video-thumb {
+.story-card:hover .story-thumb {
   transform: scale(1.05);
   opacity: 0.6;
 }
 
-/* Overlays */
+/* Play Overlay (Flexbox Centering) */
 .play-overlay {
   position: absolute;
   top: 0;
@@ -2714,12 +2611,12 @@ details[open] .faq-icon {
   right: 0;
   bottom: 0;
   display: flex;
-  align-items: center;
+  align-items: center; /* Flex centering doesn't need 'translate' */
   justify-content: center;
   z-index: 2;
 }
 
-.play-button {
+.story-play-btn {
   width: 60px;
   height: 60px;
   background-color: rgba(255, 255, 255, 0.2);
@@ -2733,17 +2630,17 @@ details[open] .faq-icon {
   transition: all 0.3s ease;
 }
 
-.video-card:hover .play-button {
-  background-color: #D4AF37; /* Gold on hover */
+.story-card:hover .story-play-btn {
+  background-color: #D4AF37;
   border-color: #D4AF37;
-  transform: scale(1.1);
+  transform: scale(1.1); /* Safe here because we use Flexbox, not translate */
 }
 
 .result-badge {
   position: absolute;
   top: 15px;
   right: 15px;
-  background-color: #4B7F52; /* Success Green */
+  background-color: #4B7F52;
   color: white;
   font-size: 0.8rem;
   font-weight: bold;
@@ -2753,7 +2650,6 @@ details[open] .faq-icon {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Text Content */
 .video-caption {
   color: #fff;
   font-size: 1.1rem;
@@ -2763,22 +2659,21 @@ details[open] .faq-icon {
 }
 
 .student-name {
-  color: #D4AF37; /* Gold text */
+  color: #D4AF37;
   font-size: 0.9rem;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* Desktop Layout */
 @media (min-width: 768px) {
-  .video-grid {
+  .stories-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 Column Grid */
-    overflow-x: visible; /* Disable scroll */
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: visible;
   }
-  .video-card {
-    flex: unset; /* Remove flex sizing */
+  .story-card {
+    flex: unset;
   }
 }
 /* --- Pull Quote (Editorial Section) --- */
