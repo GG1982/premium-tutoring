@@ -376,19 +376,28 @@ h1, h2, h3 {
   cursor: pointer;
 }
 
-/* --- Mobile Overlay Styles --- */
+/* --- Mobile Overlay Styles (Scroll Fixed) --- */
 .mobile-overlay {
   position: fixed;
   top: 0;
   right: -100%; /* Hidden off-screen */
   width: 100%;
+  /* Height fixes */
   height: 100vh;
+  height: 100dvh; /* Dynamic viewport height for modern mobile browsers */
   background-color: #1B365D;
   z-index: 2000;
+  /* Flex Layout Updates */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: flex-start; /* Start from top instead of center */
+  /* Scroll Settings */
+  overflow-y: auto; /* Allow vertical scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+  /* Padding to prevent overlap with close button */
+  padding-top: 8rem;
+  padding-bottom: 4rem;
   transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
@@ -397,31 +406,84 @@ h1, h2, h3 {
 }
 
 .mobile-close {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
+  position: fixed; /* Keeps it pinned while scrolling */
+  top: 1.5rem;
+  right: 1.5rem;
   background: none;
   border: none;
   color: white;
-  font-size: 2rem;
+  font-size: 2.5rem;
   cursor: pointer;
+  z-index: 2001;
+  /* HIDE IT BY DEFAULT */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* SHOW IT ONLY WHEN MENU IS OPEN */
+.mobile-overlay.active .mobile-close {
+  opacity: 1;
+  visibility: visible;
 }
 
 .mobile-links {
   list-style: none;
   text-align: center;
   padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 .mobile-links li {
   margin-bottom: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Animate links in when active */
+.mobile-overlay.active .mobile-links li {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animation delay for a nice effect */
+.mobile-overlay.active .mobile-links li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.mobile-overlay.active .mobile-links li:nth-child(2) {
+  transition-delay: 0.15s;
+}
+
+.mobile-overlay.active .mobile-links li:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.mobile-overlay.active .mobile-links li:nth-child(4) {
+  transition-delay: 0.25s;
+}
+
+.mobile-overlay.active .mobile-links li:nth-child(5) {
+  transition-delay: 0.3s;
+}
+
+.mobile-overlay.active .mobile-links li:nth-child(6) {
+  transition-delay: 0.35s;
+}
+
+.mobile-overlay.active .mobile-links li:nth-child(7) {
+  transition-delay: 0.4s;
 }
 
 .mobile-links a {
   color: white;
   font-family: "Playfair Display", serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem; /* Slightly smaller for better fit */
   text-decoration: none;
+  display: block; /* Makes the whole area clickable */
+  padding: 5px 0;
 }
 
 .mobile-links .highlight-gold {
